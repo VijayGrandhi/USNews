@@ -6,6 +6,8 @@ import { CommentForm } from "./CommentForm";
 
 export const Comments = ({ currentUserId }) => {
   const [commentBackEnd, setCommentBackEnd] = useState([]);
+  const [activateComment, setActiveComment] = useState(null);
+
   const baseComments = commentBackEnd.filter(
     (commentBackEnd) => commentBackEnd.parentId === null
   );
@@ -34,6 +36,17 @@ export const Comments = ({ currentUserId }) => {
         })
     }
   }
+  const editComment = (text, commentId) => {
+      const currentId = commentId
+      const updateCommentsBackend = commentBackEnd.map(singleCommentBackEnd => {
+          if( singleCommentBackEnd.id === currentId ) {
+            return {...singleCommentBackEnd, body: text}
+          }
+          return singleCommentBackEnd
+      })
+      setCommentBackEnd(updateCommentsBackend)
+      setActiveComment(null)
+  }
 
   useEffect(() => {
     getCommentsApi().then((data) => {
@@ -44,7 +57,7 @@ export const Comments = ({ currentUserId }) => {
   return (
     <div className="comments">
       <h3 className="comments-title">Comments</h3>
-      <div className = 'comments-form-title'>Comment your thoughts below</div>
+      <div className = 'comments-form-title'><i>Comment your thoughts below</i></div>
       <CommentForm labelSubmit = 'Add comment' submitHandler = {addComment} />
       <div className="comments-container">
         {baseComments.map((baseComment) => (
@@ -54,6 +67,10 @@ export const Comments = ({ currentUserId }) => {
             replies={getReplies(baseComment.id)}
             currentUserId={currentUserId}
             deleteComment={deleteComment}
+            activateComment={activateComment}
+            setActiveComment={setActiveComment}
+            editComment={editComment}
+            addComment={addComment}
           />
         ))}
       </div>
