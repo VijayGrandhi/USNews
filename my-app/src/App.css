@@ -25,6 +25,10 @@
   color: white;
 }
 
+hr.solid {
+  border-top: 3px solid #bbb;
+}
+
 .App-link {
   color: #61dafb;
 }

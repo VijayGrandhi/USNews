@@ -2,8 +2,10 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import Home from "./components/pages/Home";
 import Trending from "./components/pages/Trending";
+import { ArticleBody } from "./components/articlebody/ArticleBody";
 import { Comments } from "./components/comment/Comments";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
 function App() {
   return (
@@ -15,9 +17,10 @@ function App() {
           <Route path="/" element = {<Home />} />
           <Route path='home' element = {<Home />} />
           <Route path="trending" element = {<Trending />} />
+          <Route path="articlebody" element = {<ArticleBody />} />
         </Routes>
       </BrowserRouter>
-      <Comments currentUserId = "1"/>
+      {/* <Comments currentUserId = "1"/> */}
     </div>
   );
 }

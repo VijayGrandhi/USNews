@@ -27,6 +27,7 @@ const Home = () => {
 
       {articles.map((article) => (
         <SmallerCards key={article.title} article={article} />
+        
       ))}
     </div>
   );

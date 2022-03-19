@@ -56,7 +56,10 @@ export const Comments = ({ currentUserId }) => {
 
   return (
     <div className="comments">
-      <h3 className="comments-title">Comments</h3>
+      <hr class="solid"></hr>
+      <h7 className="comments-title" style={
+        {color: "darkslategray"}
+      }>Comments</h7>
       <div className = 'comments-form-title'><i>Comment your thoughts below</i></div>
       <CommentForm labelSubmit = 'Add comment' submitHandler = {addComment} />
       <div className="comments-container">
