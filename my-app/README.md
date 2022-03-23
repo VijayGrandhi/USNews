@@ -1,3 +1,10 @@
+Need to run: 
+1. npm install bootstrap
+2. npm install react-bootstrap
+3. npm install react-router-dom@6
+Before running npm start
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
