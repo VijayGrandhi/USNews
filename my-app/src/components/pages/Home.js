@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <div>
       <br />
-      <MainCard title="HOME" subtitle="This is the homepage" />
+      <MainCard title="TRENDING NEWS" subtitle="Find your trending news on our homepage" />
       <br />
       {/* <SmallerCards />
         <br />

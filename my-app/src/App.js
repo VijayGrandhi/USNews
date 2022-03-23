@@ -6,6 +6,7 @@ import { ArticleBody } from "./components/articlebody/ArticleBody";
 import { Comments } from "./components/comment/Comments";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="articlebody" element = {<ArticleBody />} />
         </Routes>
       </BrowserRouter>
+      <Footer />
       {/* <Comments currentUserId = "1"/> */}
     </div>
   );
