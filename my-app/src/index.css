@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f1dfd1;
+background-image: linear-gradient(315deg, #f1dfd1 0%, #f6f0ea 74%);
+
 }
 
 code {
@@ -108,4 +111,14 @@ code {
 
 .replies {
   margin-top: 20px;
+}
+
+.footer{
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgb(12, 10, 73);
+  color: white;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
