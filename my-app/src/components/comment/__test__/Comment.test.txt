@@ -1,0 +1,11 @@
+import React from "react";
+import { Comment } from "../Comment";
+import { Comments } from "../Comments";
+import { CommentForm } from "../CommentForm";
+import  ReactDOM  from "react-dom";
+import renderer from "react-test-renderer";
+
+it("matches snapshot", () => {
+    const tree = renderer.create(<Comment />).toJSON();
+    expect(tree).toMatchSnapshot();
+})
