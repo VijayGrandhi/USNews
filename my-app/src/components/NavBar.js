@@ -44,8 +44,8 @@ const NavBar = () => {
             <NavDropdown.Item href="home">Home</NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title="Sign In/Login" id="navbarScrollingDropdown">
-            <NavDropdown.Item href="signin">Sign In</NavDropdown.Item>
-            <NavDropdown.Item href="login">Login</NavDropdown.Item>
+            <NavDropdown.Item href="signinPage">Sign Up</NavDropdown.Item>
+            <NavDropdown.Item href="loginPage">Login</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="home">Home</NavDropdown.Item>
           </NavDropdown>

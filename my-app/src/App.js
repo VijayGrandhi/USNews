@@ -6,7 +6,7 @@ import { ArticleBody } from "./components/articlebody/ArticleBody";
 import { Comments } from "./components/comment/Comments";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-import Signin from "./components/pages/SignIn";
+import Signup from "./components/pages/Signup";
 import Login from "./components/pages/Login";
 
 function App() {
@@ -20,8 +20,8 @@ function App() {
           <Route path='home' element = {<Home />} />
           <Route path="trending" element = {<Trending />} />
           <Route path="articlebody" element = {<ArticleBody />} />
-          <Route path="signin" element = {<Signin />} />
-          <Route path="login" element = {<Login />} />
+          <Route path="signupPage" element = {<Signup />} />
+          <Route path="loginPage" element = {<Login />} />
         </Routes>
       </BrowserRouter>
       {/* <Comments currentUserId = "1"/> */}
