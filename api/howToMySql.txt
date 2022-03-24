@@ -1,0 +1,17 @@
+please add these tables via mySQL Workbench and make sure your terminal mysql is running
+make sure your username is root and your password matches on line 18 in api/app.js
+
+create userDB (user data base) with this command in mysql:
+
+CREATE DATABASE userDB;
+
+
+create users table, with 2 columns called username and password:
+
+CREATE TABLE Persons (
+    username varchar(45) NOT NULL,
+    password varchar(45) NOT NULL,
+    PRIMARY KEY (useername)
+);
+
+that's it. express will attach to your mysql terminal
