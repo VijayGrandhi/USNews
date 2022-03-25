@@ -15,6 +15,7 @@ code {
     monospace;
 }
 
+
 .comments {
   margin-top: 20px;
 }
@@ -115,8 +116,6 @@ code {
 
 .footer{
   margin-top: 1rem;
-  padding: 1rem;
-  background-color: rgb(12, 10, 73);
   color: white;
   bottom: 0;
   left: 0;

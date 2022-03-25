@@ -5,12 +5,7 @@ import SmallerCards from '../SmallerCards';
 const Trending = () => {
   return (
     <div>
-        <br />
-        <MainCard title="TRENDING" subtitle="find the trending news here" />
-        <br />
-        <SmallerCards />
-        <br />
-        <SmallerCards />
+        <h1>TRENDING</h1>
     </div>
 
   );
