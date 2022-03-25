@@ -20,8 +20,19 @@ const NavBar = () => {
         </Navbar.Brand>
         <Nav className="me-auto">
           <NavDropdown title="News" id="navbarScrollingDropdown">
-            <NavDropdown.Item href="trending">Trending</NavDropdown.Item>
-            <NavDropdown.Item href="#other">Other</NavDropdown.Item>
+            <NavDropdown.Item href="countries">Best Countries</NavDropdown.Item>
+            <NavDropdown.Item href="#other">Best State</NavDropdown.Item>
+            <NavDropdown.Item href="#other">Elections</NavDropdown.Item>
+            <NavDropdown.Item href="#other">Events</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="home">Home</NavDropdown.Item>
+          </NavDropdown>
+          <NavDropdown title="Education" id="navbarScrollingDropdown">
+          <NavDropdown.Item href="education">Education</NavDropdown.Item>
+            <NavDropdown.Item href="countries">Collage</NavDropdown.Item>
+            <NavDropdown.Item href="#other">Grad School</NavDropdown.Item>
+            <NavDropdown.Item href="#other">Ranking</NavDropdown.Item>
+      
             <NavDropdown.Divider />
             <NavDropdown.Item href="home">Home</NavDropdown.Item>
           </NavDropdown>
