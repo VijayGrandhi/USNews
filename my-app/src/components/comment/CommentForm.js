@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/esm/Button";
 
 export const CommentForm = ({ labelSubmit, submitHandler, cancelButton=false, baseText="", cancelHandler }) => {
   const [text, setText] = useState(baseText);

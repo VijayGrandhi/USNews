@@ -11,18 +11,16 @@ const MainCard = ( {title, subtitle} ) => {
     <>
     <Container>
       <Row>
-        <Col className="block-example border border-primary" style={{ padding:5 }}>
-          <Card style={{ width: "auto", height: "20rem" }}>
+        <Col style={{ padding:5 }}>
+          <Card style={{ width: "auto", height: "20rem", backgroundImage: `url("https://iea.imgix.net/817ded0e-7bb6-4b79-b425-65e6f7b705f1/shutterstock_1484419673.jpg?auto=compress%2Cformat&fit=min&q=80&rect=0%2C517%2C3840%2C1643")`, backgroundSize:"100rem", backgroundRepeat: "no-repeat"}}>
             <Card.Body>
-              <Card.Title>{title}</Card.Title>
+              <Card.Title style={{ color: "white" }}>{title}</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
                 {subtitle}
               </Card.Subtitle>
-              <Card.Text>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              <Card.Text style={{ color: "white" }}>
+              Get your everyday news on the revamped USNEWS
               </Card.Text>
-              <Card.Link href="#">Card Link</Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
             </Card.Body>
           </Card>
         </Col>

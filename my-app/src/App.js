@@ -12,14 +12,24 @@ import DetailedNews from "./components/Countries/DetailedNews";
 import RankingList from "./components/Countries/RankingList";
 import EducationMainPage from "./components/Education/EducationMainPage";
 
+import Footer from "./components/Footer";
+import DetailedArticle from "./components/Education/DeatiledArticle";
+import EducationRankingList from "./components/Education/EducationRankingList";
+import UniversityRanking from "./components/Education/UniversityRanking";
+import SignIn from "./components/SignIn";
+import ElectionPage from "./components/Election/ElectionMainFile";
+import ElectionDetailed from "./components/Election/ElectionDetailed";
+import EventMainPage from "./components/Events/EventMainPage";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+     
         <NavBar />
         <br/>
         <Routes>
+        {/* <Route path="/signIn" element = {<SignIn />} /> */}
           <Route path="/" element = {<Home />} />
           <Route path='home' element = {<Home />} />
           <Route path="trending" element = {<Trending />} />
@@ -30,9 +40,19 @@ function App() {
           <Route path="detailedNews" element = {<DetailedNews />} />
           <Route path="rankingList" element = {<RankingList />} />
           <Route path="education" element = {<EducationMainPage />} />
+          <Route path="detailedArticle" element = {<DetailedArticle />} />
+          <Route path="educationRankingList" element = {<EducationRankingList />} />
+          {/* <Route path="universityRanking" element = {<UniversityRanking />} /> */}
+          <Route path="universityRanking" element = {<UniversityRanking />} />
+          <Route path="election" element = {<ElectionPage />} />
+          <Route path="electionDetailed" element = {<ElectionDetailed />} />
+          <Route path="event" element = {<EventMainPage />} />
+          
+          
           
         </Routes>
       </BrowserRouter>
+      <Footer />
       {/* <Comments currentUserId = "1"/> */}
     </div>
   );

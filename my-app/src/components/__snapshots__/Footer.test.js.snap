@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="footer"
+>
+  <p>
+    USNews App CS673 Team 8: Hollins, Vijay, Shrusti, Miti, Erica ©
+  </p>
+</div>
+`;
