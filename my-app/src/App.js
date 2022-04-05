@@ -7,6 +7,9 @@ import { Comments } from "./components/comment/Comments";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import Footer from "./components/Footer";
+import { Sample } from "./components/pages/Sample";
+import { Signup } from "./components/pages/Signup";
+import { Login } from "./components/pages/Login";
 
 function App() {
   return (
@@ -15,10 +18,12 @@ function App() {
         <NavBar />
         <br/>
         <Routes>
-          <Route path="/" element = {<Home />} />
+          <Route path="/sample" element = {<Sample />} />
           <Route path='home' element = {<Home />} />
           <Route path="trending" element = {<Trending />} />
           <Route path="articlebody" element = {<ArticleBody />} />
+          <Route path="/signUp" element = {<Signup />} />
+          <Route path="/login01" element = {<Login />} />
         </Routes>
       </BrowserRouter>
       <Footer />
