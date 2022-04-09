@@ -43,6 +43,11 @@ const NavBar = () => {
             <NavDropdown.Divider />
             <NavDropdown.Item href="home">Home</NavDropdown.Item>
           </NavDropdown>
+          <NavDropdown title="Forums" id="navbarScrollingDropdown">
+          <NavDropdown.Item href="forumtiles">Forums</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="home">Home</NavDropdown.Item>
+          </NavDropdown>
         </Nav>
       </Container>
     </Navbar>
