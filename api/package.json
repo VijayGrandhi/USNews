@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  
   "scripts": {
     "dev": "nodemon app.js",
     "test": "mocha Tests",
@@ -16,9 +15,11 @@
     "body-parser": "^1.19.2",
     "chai": "^4.3.6",
     "chai-http": "^4.3.0",
+    "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
     "math": "^0.0.3",
     "mocha": "^9.2.2",
     "moment": "^2.29.1",
