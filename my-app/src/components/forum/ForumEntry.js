@@ -27,7 +27,7 @@ export const ForumEntry = ({
     <div className="comment">
       <div className="comment-image-container">
         <img
-          src="https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_1280.png"
+          src= {comment.image}
           height={50}
           width={50}
         />
