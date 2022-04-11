@@ -22,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/sample" element = {<Sample />} />
           <Route path='/home' element = {<Home />} />
+          <Route path='' element = {<Home />} />
           <Route path="trending" element = {<Trending />} />
           <Route path="articlebody" element = {<ArticleBody />} />
           <Route path="/signUp" element = {<Signup />} />

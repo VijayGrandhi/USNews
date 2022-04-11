@@ -24,8 +24,13 @@ export const ForumEntry = ({
     activateComment.id === comment.id;
   const replyId = parentId ? parentId : comment.id;
   return (
-    <div className="comment">
-      <div className="comment-image-container">
+    <div className="comment" style={{
+      boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+      backgroundColor: "whitesmoke",
+      maxWidth: "100rem"
+
+    }}>
+      <div className="comment-image-container" style={{padding:6}}>
         <img
           src= {comment.image}
           height={50}
@@ -37,7 +42,9 @@ export const ForumEntry = ({
           <div className="comment-author">{comment.username}</div>
           <div>{createdAtDate}</div>
         </div>
-        {!isEditing && <div className="comment-text">{comment.body}</div>}
+        {!isEditing && <div className="comment-text" style={{
+          marginRight: 300
+        }}>{comment.body}</div>}
         {isEditing && (
           <ForumForm
             labelSubmit="Update"
