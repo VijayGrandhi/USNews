@@ -13,8 +13,11 @@ export const ForumEntries = ({ currentUserId, topic, discussiontopics }) => {
   const [activateComment, setActiveComment] = useState(null);
   
   const baseComments = commentBackEnd.filter(
-    (commentBackEnd) => commentBackEnd.parentId === null
+    (commentBackEnd) => commentBackEnd.parentId === null || commentBackEnd.topic === "topic01"
   );
+
+  const baseCommentsTopic01 = commentBackEnd.filter( (commentBackEnd)=>commentBackEnd.parentId === null && commentBackEnd.topic==="topic01")
+
   const getReplies = (commentId) => {
     return commentBackEnd
       .filter(
@@ -27,7 +30,7 @@ export const ForumEntries = ({ currentUserId, topic, discussiontopics }) => {
   };
   const addComment = (text, parentId) => {
     createCommentApi(text, parentId).then((comment) => {
-      setCommentBackEnd([comment, ...commentBackEnd]);
+      setCommentBackEnd([...commentBackEnd, comment]);
     });
   };
   const deleteComment = (commentId) => {
@@ -166,3 +169,6 @@ export const ForumEntries = ({ currentUserId, topic, discussiontopics }) => {
     </div>
   );
 };
+
+
+//Notes: Remove replying functionality...Make shadpws more defined...

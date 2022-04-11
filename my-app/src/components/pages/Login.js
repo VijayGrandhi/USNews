@@ -6,10 +6,9 @@ export const Login = () => {
     const [password, setpasswordLogin] = useState('')
 
     const login = () => {
-        Axios.post("/login01", {
-            usernameField: username,
-            passwordField: password,
-            withCredentials: true
+        Axios.post("/login", {
+            username: username, 
+            password: password
         }).then((response)=>{
             console.log(response)
         })

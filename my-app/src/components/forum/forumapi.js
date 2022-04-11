@@ -2,7 +2,8 @@ export const getComments = async () => {
     return [
       {
         id: "1",
-        body: "I thought the article did not highlight some of the important issues",
+        topic:"topic01",
+        body: "The main reason many people don't like American media is because most broadcasting agencies are owned by major corporations who have their own agendas. You will never find an agenda free news source. Fox news channel for example is owned by a company that is very Republican so its news program reflects that. Other news media like CNN has agreements with the US government to allow CNN special access to troops and other government areas so long as the news doesn't report certain stories. That is why Snowden took his leaked documents outside the US. He didn't want the media to bury it.",
         username: "Hollins",
         userId: "1",
         parentId: null,
@@ -11,6 +12,7 @@ export const getComments = async () => {
       },
       {
         id: "2",
+        topic:"topic01",
         body: "The article about the top 10 schools in the northeast was extremely informative!",
         username: "Erica",
         userId: "2",
@@ -20,19 +22,30 @@ export const getComments = async () => {
       },
       {
         id: "3",
+        topic:"topic01",
         body: "Nope, it definetly handled the topics with a professional touch",
         username: "Vijay",
         userId: "2",
-        parentId: "1",
+        parentId: null,
         createdAt: "2022-04-16T23:00:33.010+02:00",
         image: "https://miro.medium.com/max/1400/1*rIkmavUeqyRySwlQdA9kKg.jpeg  "
       },
       {
         id: "4",
+        topic:"topic01",
         body: "Yes, I agree it was fantastic",
         username: "Shrusti",
         userId: "2",
-        parentId: "2",
+        parentId: null,
+        createdAt: "2022-05-16T23:00:33.010+02:00",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"
+      }, {
+        id: "5",
+        topic:"topic01",
+        body: "YO THIS IS THE COMMENT",
+        username: "ME",
+        userId: "1",
+        parentId: null,
         createdAt: "2022-05-16T23:00:33.010+02:00",
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg"
       },
