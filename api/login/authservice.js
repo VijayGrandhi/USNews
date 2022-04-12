@@ -9,7 +9,7 @@ module.exports={
             db.CheckUser(username,Password,'','').then((data)=>{
                 console.log(data);
                 details=data;
-                if(details.emailId != null) {
+                if(details.EMAILID != null) {
                 token=this.GenerateJWT({username:username});
                 response=[{
                     token:token,

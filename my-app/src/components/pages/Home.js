@@ -15,6 +15,7 @@ const Home = () => {
   }, []);
 
   console.log(articles);
+  console.log(localStorage.getItem("token"))
 
   return (
     <div>
