@@ -3,12 +3,20 @@ const app = express()
 const https = require('https');
 const httpService = require('./httpservice');
 const constant= require('./constants');
+const cors=require("cors");
+const corsOptions ={
+   origin:'*', 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+
+app.use(cors(corsOptions))
 const port = 3000
 app.use(express.json({strict: false}));
 app.use(express.urlencoded()) 
 
-app.get('/', (req, res) => {
-    https.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=4beba1cc87394519821078d27cfefd96',{observe: "response"}, resp => {
+app.get('/headlines', (req, res) => {
+    https.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=4beba1cc87394519821078d27cfefd96',{observe: "response",headers:"application/json"}, resp => {
     var bodyChunks = [];
     var BODY;
         resp.on('data', function(chunk) {
@@ -44,7 +52,7 @@ app.post('/education',(req,res)=>{
         if(keyword==keys[i])
         {
             console.log(constant.BaseURL2+keyword+constant.apiKey);
-            https.get(constant.BaseURL2+keyword+constant.apiKey,{observe: "response"}, resp => {
+            https.get(constant.BaseURL2+keyword+constant.apiKey,{observe: "response",headers:"application/json"}, resp => {
               var bodyChunks = [];
                datas=[];
                
