@@ -28,9 +28,13 @@
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
     "react": "^17.0.2",
+    "react-bootstrap": "^2.2.1",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+<<<<<<< HEAD
     "react-test-renderer": "^17.0.2",
+=======
+>>>>>>> 8b78d3d1cecaebf362ca1402677998ab098fa395
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
