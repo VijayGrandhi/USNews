@@ -2,7 +2,7 @@
 // const app = express()
 // const port = 3000
 
-// app.get('/', (req, res) => {
+// app.get('/', test.authenticateToken, (req, res) => {
 //   res.send('Hello World!')
 // })
 
@@ -13,7 +13,8 @@
 const express = require('express');
 const app=express()
 const mysql = require('mysql2')
-const test = require('./login/authservice');
+const test = require('./services/authservice');
+const articlesService = require('./services/articles')
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const passport = require('passport')
@@ -67,6 +68,28 @@ app.post('/login', (req, res,next) => {
  
       });    
  })
+ app.post('/getSavedArticles',test.authenticateToken,(req,res)=>{
+    articlesService.requestArticles(req.body.username).then((data)=>{
+        if(data==null)
+        {
+            res.json({data:'data not exists'})
+        }
+        else{
+        res.json(data);
+        }
+    })
+})
+app.post('/articleDetails',test.authenticateToken,(req,res)=>{
+    article.ArticleDetails(req.body.articleheader).then((data)=>{
+        if(data==null)
+        {
+            res.json({data:'data not exists'})
+        }
+        else{
+           res.json(data);
+        }
+    })
+})
 
 
 

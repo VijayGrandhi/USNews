@@ -9,18 +9,22 @@ module.exports={
             db.CheckUser(username,Password,'','').then((data)=>{
                 console.log(data);
                 details=data;
-                if(details.EMAILID != null) {
+                if(details.EMAILID!=null && details.EMAILID!='')
+                {
                 token=this.GenerateJWT({username:username});
+                // console.log(response)    
                 response=[{
                     token:token,
                     expiresIn: '1800s',
                     username:details.USERNAME,
+                    usertype:details.usertype,
                     emailId:details.EMAILID,
-                    contactNo:details.CONTACT_NO
+                    contactNo:details.CONTACT_NO,
+                    likes:details.likes,
+                    comments:details.COMMENTS,
+                    saved:details.SAVED,
                 }];
                 resolve(response);
-            } else {
-                resolve([{message: "User does not exist!"}])
             }
             });
         })
@@ -28,7 +32,7 @@ module.exports={
     sigin:function(request){
         return new Promise((resolve,reject)=>{
             console.log(request.body.username);
-            db.CheckUser(request.body.username,request.body.password,request.body.emailId,request.body.contactNo).then((data)=>{
+            db.CheckUser(request.body.username,request.body.password,request.body.emailId,request.body.contactNo,request.body.usertype).then((data)=>{
             console.log(data);
             if(data=='USERINSERTED'){
                token=this.GenerateJWT({username:request.body.username});
