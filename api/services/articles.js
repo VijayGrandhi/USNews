@@ -12,8 +12,28 @@ module.exports = {
     },
     requestArticles:function(username){
         return new Promise((resolve,reject)=>{
-            db.getSavedArticles(username).then((data)=>{
-                resolve(data)
+            const response=[];
+            db.getSavedArticles(username).then((data1)=>{
+                for(i=0;i<data1.length;i++){
+                    db.getArticleData(data1[i].ARTICLEHEADER).then((data)=>{
+                        data["comments_list"] = [];
+                        db.getComments(data.ARTICLEHEADER).then((comments)=>{
+                            data["comments_list"].push(comments)
+                        })
+                        response.push(data)
+
+                        console.log(response.length);
+                        console.log(data1.length)
+                        if(response.length==data1.length)
+                        {
+                        console.log("response done");
+                    resolve(response);
+                        }
+                    })
+                    
+                }
+                
+                
             })
         })
     },
@@ -23,6 +43,22 @@ module.exports = {
             db.getArticleData(request).then((data)=>{
                 console.log(data);
                 resolve(data)
+            })
+        })
+    },
+    allarticle:function(){
+        return new Promise((resolve,reject)=>{
+            db.AllArticles().then((data)=>{
+                responsetest=[];
+                for(i=0;i<data.length;i++){
+                    data[i]["comments_list"] = [];
+                      db.getComments(data[i].ARTICLEHEADER).then((comments)=>{
+                        data[i]["comments_list"].push(comments);
+                      })
+                      responsetest.push(data[i]);
+
+                }
+                resolve(responsetest)
             })
         })
     },

@@ -1,28 +1,29 @@
 import Axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
-import { Card } from "react-bootstrap";
+import { Card, CardGroup } from "react-bootstrap";
 
 export const ProfilePage = () => {
   const token = localStorage.getItem("token");
   const [header, setheader] = useState([]);
+  const [data, setdata] = useState([]);
+  const data1 = [];
 
-  //const articleheader = () => {
-  Axios.post(
-    "/getSavedArticles",
-    {
-      username: localStorage.getItem("username"),
-    },
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
+  useEffect(() => {
+    Axios.post(
+      "/getSavedArticles",
+      {
+        username: localStorage.getItem("username"),
       },
-    }
-  ).then((response) => {
-    console.log(response);
-    setheader(response.data.ARTICLEHEADER);
-  });
-  //}
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    ).then((response) => {
+      setdata(response.data);
+    });
+  }, []);
 
   return (
     <div>
@@ -35,22 +36,25 @@ export const ProfilePage = () => {
           <li>Comments: {localStorage.getItem("comments")}</li> */}
         <li>Saved: {localStorage.getItem("saved")}</li>
         {/* <button onClick={articleheader}>Click to get header in console log </button> */}
-
-        <li>
-          <h3>Header: {header}</h3>
-        </li>
       </ul>
+          <CardGroup>
+      {data.map((article) => (
+        <div>
+          <br />
 
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-          <Card.Title>{header}</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-        </Card.Body>
-      </Card>
+          <Card border={"info"} style={{ width: "18rem" }}>
+            <Card.Img variant="top" src={article.ARTICLEURLTOIMAGE} />
+            <Card.Body>
+              <Card.Title>{article.ARTICLEHEADER}</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </div>
+      ))}
+      </CardGroup>
     </div>
   );
 };

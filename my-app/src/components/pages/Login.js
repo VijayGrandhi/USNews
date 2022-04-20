@@ -13,13 +13,21 @@ export const Login = () => {
             password: password
         }).then((response)=>{
             console.log(response)
-            if(response.data[0].message == "User does not exist!") {
+            if(response.data[0].message === "User does not exist!") {
                 setLoginStatus(false);
                 alert("User does not exist!")
             } else {
+                console.log(response)
                 localStorage.setItem("token", response.data[0].token)
+                localStorage.setItem("username", response.data[0].username)
+                localStorage.setItem("emailId", response.data[0].emailId)
+                localStorage.setItem("likes", response.data[0].likes)
+                localStorage.setItem("comments", response.data[0].comments)
+                localStorage.setItem("saved", response.data[0].saved)
+                localStorage.setItem("usertype", response.data[0].usertype)
                 setLoginStatus(true);
-                navigate("/home")
+                navigate("/profile")
+                
             }
             
             
@@ -32,7 +40,7 @@ export const Login = () => {
           <label>Username</label>
           <input type="text" onChange={(e)=>{setusernameLogin(e.target.value)}}/>
           <label>Password</label>
-          <input type="text" onChange={(e)=>{setpasswordLogin(e.target.value)}}/>
+          <input type="password" onChange={(e)=>{setpasswordLogin(e.target.value)}}/>
           <button onClick={login}>Login</button>
       </div>
   )
