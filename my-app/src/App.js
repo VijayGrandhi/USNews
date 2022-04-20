@@ -27,6 +27,7 @@ import ElectionDetailed from "./components/Election/ElectionDetailed";
 import EventMainPage from "./components/Events/EventMainPage";
 import { ProfilePage } from "./components/pages/ProfilePage";
 
+
 function App() {
   return (
     <div className="App">
@@ -64,7 +65,7 @@ function App() {
           <Route path="event" element = {<EventMainPage />} />
           <Route path="/profile" element = {<ProfilePage />} />
           
-          
+
         </Routes>
       </BrowserRouter>
       <Footer />
