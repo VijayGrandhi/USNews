@@ -115,16 +115,10 @@ const NavBar = () => {
           </NavDropdown>
           <NavDropdown title={<b style={{color:'white'}}>Education</b>} id="navbarScrollingDropdown">
           <NavDropdown.Item href="education">Education</NavDropdown.Item>
-            <NavDropdown.Item href="countries">Collage</NavDropdown.Item>
-            <NavDropdown.Item href="#other">Grad School</NavDropdown.Item>
+            <NavDropdown.Item href="countries">Colleges</NavDropdown.Item>
+            <NavDropdown.Item href="#other">Grad Schools</NavDropdown.Item>
             <NavDropdown.Item href="universityRanking">Ranking</NavDropdown.Item>
       
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="home">Home</NavDropdown.Item>
-          </NavDropdown>
-          <NavDropdown title={<b style={{color:'white'}}>Schools</b>} id="navbarScrollingDropdown">
-            <NavDropdown.Item href="#rankings">Rankings</NavDropdown.Item>
-            <NavDropdown.Item href="#other">Other</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="home">Home</NavDropdown.Item>
           </NavDropdown>

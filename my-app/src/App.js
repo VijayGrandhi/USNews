@@ -13,13 +13,11 @@ import RankingList from "./components/Countries/RankingList";
 import EducationMainPage from "./components/Education/EducationMainPage";
 
 import Footer from "./components/Footer";
-<<<<<<< HEAD
 import { Sample } from "./components/pages/Sample";
 import { Signup } from "./components/pages/Signup";
 import { Login } from "./components/pages/Login";
 import { Forums } from "./components/pages/Forums";
 import ForumTile from "./components/pages/ForumTiles";
-=======
 import DetailedArticle from "./components/Education/DeatiledArticle";
 import EducationRankingList from "./components/Education/EducationRankingList";
 import UniversityRanking from "./components/Education/UniversityRanking";
@@ -27,7 +25,7 @@ import SignIn from "./components/SignIn";
 import ElectionPage from "./components/Election/ElectionMainFile";
 import ElectionDetailed from "./components/Election/ElectionDetailed";
 import EventMainPage from "./components/Events/EventMainPage";
->>>>>>> 8b78d3d1cecaebf362ca1402677998ab098fa395
+import { ProfilePage } from "./components/pages/ProfilePage";
 
 function App() {
   return (
@@ -37,7 +35,6 @@ function App() {
         <NavBar />
         <br/>
         <Routes>
-<<<<<<< HEAD
           <Route path="/sample" element = {<Sample />} />
           <Route path='/home' element = {<Home />} />
           <Route path='' element = {<Home />} />
@@ -47,7 +44,6 @@ function App() {
           <Route path="/login" element = {<Login />} />
           <Route path="forums" element = {<Forums/>} />
           <Route path="forumtiles" element = {<ForumTile/>} />
-=======
         {/* <Route path="/signIn" element = {<SignIn />} /> */}
           <Route path="/" element = {<Home />} />
           <Route path='home' element = {<Home />} />
@@ -66,10 +62,9 @@ function App() {
           <Route path="election" element = {<ElectionPage />} />
           <Route path="electionDetailed" element = {<ElectionDetailed />} />
           <Route path="event" element = {<EventMainPage />} />
+          <Route path="/profile" element = {<ProfilePage />} />
           
           
-          
->>>>>>> 8b78d3d1cecaebf362ca1402677998ab098fa395
         </Routes>
       </BrowserRouter>
       <Footer />
