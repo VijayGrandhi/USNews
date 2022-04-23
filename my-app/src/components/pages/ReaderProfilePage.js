@@ -3,7 +3,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Card, CardGroup } from "react-bootstrap";
 
-export const ProfilePage = () => {
+export const ReaderProfilePage = () => {
   const token = localStorage.getItem("token");
   const [header, setheader] = useState([]);
   const [data, setdata] = useState([]);
@@ -37,23 +37,21 @@ export const ProfilePage = () => {
         <li>Saved: {localStorage.getItem("saved")}</li>
         {/* <button onClick={articleheader}>Click to get header in console log </button> */}
       </ul>
-          <CardGroup>
-      {data.map((article) => (
-        <div>
-          <br />
-
-          <Card border={"info"} style={{ width: "18rem" }}>
-            <Card.Img variant="top" src={article.ARTICLEURLTOIMAGE} />
-            <Card.Body>
-              <Card.Title>{article.ARTICLEHEADER}</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </div>
-      ))}
+      <CardGroup>
+        {data.map((article) => (
+          <div>
+            <br />
+            <Card style={{ width: "25rem", height: "25rem", padding: "10px" }}>
+              <Card.Img variant="top" src={article.ARTICLEURLTOIMAGE} />
+              <Card.Body>
+                <Card.Title>{article.ARTICLEHEADER}</Card.Title>
+                <Card.Text>
+                  Some quick example text
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
+        ))}
       </CardGroup>
     </div>
   );

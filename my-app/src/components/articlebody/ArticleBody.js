@@ -6,11 +6,14 @@ import { Axios } from "axios";
 import { Checkbox } from "@mui/material";
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 export const ArticleBody = () => {
   const token = localStorage.getItem("token");
+  const currentUser = localStorage.getItem("username");
 
   const location = useLocation();
   const state = location.state;
@@ -54,9 +57,16 @@ export const ArticleBody = () => {
         onClick ={sendLikedArticle}
       />
 
+      <Checkbox
+        {...label}
+        icon={<BookmarkBorderIcon />}
+        checkedIcon={<BookmarkIcon />}
+        onClick ={sendLikedArticle}
+      />
+
       <p>{state.content}</p>
       <br></br>
-      <Comments currentUserId="1" />
+      <Comments currentUserId={currentUser} />
     </Container>
   );
 };

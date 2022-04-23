@@ -25,7 +25,9 @@ import SignIn from "./components/SignIn";
 import ElectionPage from "./components/Election/ElectionMainFile";
 import ElectionDetailed from "./components/Election/ElectionDetailed";
 import EventMainPage from "./components/Events/EventMainPage";
-import { ProfilePage } from "./components/pages/ProfilePage";
+import { ReaderProfilePage } from "./components/pages/ReaderProfilePage";
+import { JournalistProfilePage } from "./components/pages/JournalistProfilePage";
+
 
 
 function App() {
@@ -63,7 +65,8 @@ function App() {
           <Route path="election" element = {<ElectionPage />} />
           <Route path="electionDetailed" element = {<ElectionDetailed />} />
           <Route path="event" element = {<EventMainPage />} />
-          <Route path="/profile" element = {<ProfilePage />} />
+          <Route path="/readerprofile" element = {<ReaderProfilePage />} />
+          <Route path="/journalistprofile" element = {<JournalistProfilePage />} />
           
 
         </Routes>

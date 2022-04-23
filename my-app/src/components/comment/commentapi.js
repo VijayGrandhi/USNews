@@ -1,9 +1,11 @@
+const username = localStorage.getItem("username")
+
 export const getComments = async () => {
     return [
       {
         id: "1",
         body: "This a great article!",
-        username: "Hollins",
+        username: username,
         userId: "1",
         parentId: null,
         createdAt: "2022-03-16T16:00:33.010+02:00",
