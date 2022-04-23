@@ -32,7 +32,7 @@ export const Signup = () => {
           <label>Username</label>
           <input type="text" onChange={(e)=>{setusernameReg(e.target.value)}}/>
           <label>Password</label>
-          <input type="text" onChange={(e)=>{setpasswordReg(e.target.value)}}/>
+          <input type="password" onChange={(e)=>{setpasswordReg(e.target.value)}}/>
           <label>Email</label>
           <input type="text" onChange={(e)=>{setemailReg(e.target.value)}}/>
           <label>Phone Number</label>

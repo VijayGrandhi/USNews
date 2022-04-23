@@ -144,6 +144,9 @@ const NavBar = () => {
             <NavDropdown.Divider />
             <NavDropdown.Item href="/login">Login</NavDropdown.Item>
           </NavDropdown>
+          <Nav.Link href="/readerprofile">Reader Profile</Nav.Link>
+          <Nav.Link href="/journalistprofile">Journalist Profile</Nav.Link>
+
         </Nav>
       </Container>
     </Navbar>

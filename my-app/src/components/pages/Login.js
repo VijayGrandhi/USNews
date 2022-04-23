@@ -26,7 +26,12 @@ export const Login = () => {
                 localStorage.setItem("saved", response.data[0].saved)
                 localStorage.setItem("usertype", response.data[0].usertype)
                 setLoginStatus(true);
-                navigate("/profile")
+                if( localStorage.getItem("usertype") === "reader" ){
+                    navigate("/readerprofile")
+                } else if( localStorage.getItem("usertype") === "journalist" ) {
+                    navigate("/journalistprofile")
+                }
+                
                 
             }
             
