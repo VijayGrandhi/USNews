@@ -19,17 +19,20 @@ import { useNavigate } from 'react-router-dom';
 
 import CardMedia from '@mui/material/CardMedia';
 import Divider from '@mui/material/Divider';
+import { getEducationArticleAPIData } from "../pages/getAPIData";
+import SmallerCards from "../SmallerCards";
 const EducationMainPage = () => {
-  const [articles, setArticles] = useState([]);
+  const [article, setArticle] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    // getAPIData("business").then((data) => {
-    //   console.log(data);
-    //   setArticles(data.articles);
-    // });
+    getEducationArticleAPIData().then((data)=>{
+      // console.log(data.results[0]);
+      setArticle(data.results[0]);
+    })
+
   }, []);
 
-  console.log(articles);
+  console.log(article);
   const handleClickOfEducation= e => {
     console.log('in hanlde click of education')
       e.preventDefault();
@@ -46,7 +49,9 @@ const EducationMainPage = () => {
        // do something here
       }
   return (
+    
     <div>
+      
          <Breadcrumbs aria-label="breadcrumb">
         <Link underline="hover" color="inherit" href="/">
           Home
@@ -70,41 +75,50 @@ const EducationMainPage = () => {
         <Divider/>
        
       <CardContent>
-      <Typography sx={{ fontSize: 23 }} component="div" gutterBottom><b>Boost the Odds of MBA Acceptance</b></Typography>
+      <Typography sx={{ fontSize: 23 }} component="div" gutterBottom>
+        <CardActionArea href="https://www.aringo.com/mba-admission-chances-calculator/">
+        <b>What are your chances of admission for top MBA programs? </b>
         <Typography gutterBottom variant="h7" component="div">
-        Experts advise that MBA applicants ask for recommendation letters as early as possible.
+        Use our free and comprehensive MBA Odds estimation predictor to find out!
         </Typography>
-     
-     
         <Typography>
-     - Ilana Kowarski March 15, 2022
+     - Aringo’s Admissions Calculator 2022
         </Typography>
+        </CardActionArea>
+        </Typography>
+        
+        
         <br></br>
         <Divider/>
         <br></br>
-        <Typography sx={{ fontSize: 23 }} component="div" gutterBottom><b>What to Do When Your Child Is the Bully</b></Typography>
+        <CardActionArea href="https://childmind.org/article/what-to-do-if-your-child-is-bullying/">
+        <Typography sx={{ fontSize: 23 }} component="div" gutterBottom><b>My Child Is a Bully: What Should I Do?
+</b></Typography>
        
         <Typography gutterBottom variant="h7" component="div">
-        Experts explain how to understand a child’s bullying behavior – and how to respond.
-        </Typography>
+        How to find out what's behind the bullying behavior, and foster healthy friendship skills
+</Typography>
         <Typography>
-     - Gail Cornwall March 16, 2022
+     - Brigit Katz
         </Typography>
+        </CardActionArea>
 
         <br></br>
         <Divider/>
         <br></br>
 
         <div>
+         
 			<img src='https://www.usnews.com/dims4/USNEWS/2ef211f/2147483647/thumbnail/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F2c%2F6e%2F8c8d4dd047af97090d6fc5947951%2Fgettyimages-1310989321.jpg' style={{marginLeft:"2%",
 float:"left",
 height:"40px",
 width:"40px"}}/>
 		</div>	
-	<div style={{marginLeft:"60px"}}>
+    <CardActionArea href="https://blog.collegevine.com/pre-med-requirements/"><div style={{marginLeft:"60px"}}>
 	<h8>College Courses to Take Before Medical School</h8>
 	
-	</div>
+	</div></CardActionArea>
+  
 
     <Divider/>
         <br></br>
@@ -115,10 +129,11 @@ float:"left",
 height:"40px",
 width:"40px"}}/>
 		</div>	
-	<div style={{marginLeft:"60px"}}>
-	<h8>5 U.S. College Admissions Mistakes International Students </h8>
+    <CardActionArea href="https://www.weadmit.com/blog/5-common-mistakes-international-students-make-on-college-applications"><div style={{marginLeft:"60px"}}>
+    
+	<h8>5 Common Mistakes International Students Make On College Applications  </h8>
 	
-	</div>
+	</div></CardActionArea>
 
     <Divider/>
         <br></br>
@@ -129,10 +144,11 @@ float:"left",
 height:"40px",
 width:"40px"}}/>
 		</div>	
-	<div style={{marginLeft:"60px"}}>
-	<h8>How Colleges Are Addressing Food Insecurity</h8>
+	<CardActionArea href="https://www.healthaffairs.org/do/10.1377/forefront.20220127.264905">
+  <div style={{marginLeft:"60px"}}>
+	<h8>Food Insecurity On College Campuses: The Invisible Epidemic</h8>
 	
-	</div>
+	</div></CardActionArea>
 
     <Divider/>
         <br></br>
@@ -143,10 +159,11 @@ float:"left",
 height:"40px",
 width:"40px"}}/>
 		</div>	
+    <CardActionArea href="https://wtop.com/news/2022/03/how-to-improve-your-social-media-presence-for-college-admissions/">
 	<div style={{marginLeft:"60px"}}>
-	<h7>Improve Your Social Media for College Admissions</h7>
+	<h7>How to Improve Your Social Media Presence for College Admissions</h7>
 	
-	</div>
+	</div></CardActionArea>
         
         </CardContent>
 
@@ -167,7 +184,7 @@ width:"40px"}}/>
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        backgroundImage: `url("https://www.usnews.com/dims4/USNEWS/d107612/2147483647/thumbnail/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F9c%2Fa2%2F0683f4314d99a2c58f1190867e2b%2Fgettyimages-1138450332.jpg")`,
+        backgroundImage: `url("${article.image_url}")`,
       }}
     >
       {/* Increase the priority of the hero background image */}
@@ -191,33 +208,33 @@ width:"40px"}}/>
               pr: { md: 0 },
             }}
           >
+            
             <Typography component="h1" variant="h5" color="inherit" style={{fontWeight:'900'}}gutterBottom>
-            Helping Students Catch Up on Unfinished Learning
+            {article.title}
             </Typography>
             <br></br>
             <Typography variant="h9" color="inherit" paragraph>
-            By Maureen Ojiambo | March 17, 2022, at 11:31 a.m.
+            {article.creator} | {article.pubDate}
             </Typography>
             <Link style={{color:'white'}}variant="subtitle1" href="#">
-            Schools and parents can work together to help kids recover from COVID-related instructional loss.
-
+              {article.description}
             </Link>
           </Box>
         </Grid>
       </Grid>
     </Paper>
 </div>
-    <CardActionArea component="a" href="#">
+    <CardActionArea component="a" href="https://nces.ed.gov/collegenavigator/">
         <Card sx={{ display: 'flex' }}>
           <CardContent sx={{ flex: 1 }}>
             <Typography component="h2" variant="h5">
-            U.S. News College Compass
+            National Center for Education Statistics | College Navigator
             </Typography>
             <br></br>
             <Typography variant="subtitle1" color="text.secondary">
             Unlock our comprehensive data, rankings and interactive tools to help you and your child choose the right college.           </Typography>
            <br></br>
-            <Button style={{backgroundColor:'#CE2927'}}variant="contained">Unlock with College Compass</Button>
+            <Button style={{backgroundColor:'#CE2927'}}variant="contained">Unlock with College Navigator</Button>
 
           </CardContent>
           <CardMedia
@@ -279,7 +296,7 @@ width:"40px"}}/>
         </Typography>
 
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-           Best Collages
+           Best Colleges
         </Typography>
         {/* <br /> */}
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
@@ -287,7 +304,7 @@ width:"40px"}}/>
         </Typography>
 
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-       Best Online Collage
+       Best Online College
         </Typography>
 
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
@@ -314,7 +331,7 @@ width:"40px"}}/>
     <br></br>
     <br></br>
     <Grid item xs={12} md={12}>
-   <h3 style={{fontWeight:'900'}}>BEST COLLAGES</h3>
+   <h3 style={{fontWeight:'900'}}>BEST COLLEGES</h3>
    </Grid>
   
     <Divider />
@@ -341,11 +358,13 @@ float:"left",
 height:"45px",
 width:"45px"}}/>
 		</div>	
+    <CardActionArea href="https://www.bestcolleges.com/blog/how-to-choose-the-right-college/">
 	<div style={{marginLeft:"60px"}}>
-	<h8>Finding the Right School
+	<h8>How to Choose a College
+
 </h8>
 	
-	</div>
+	</div></CardActionArea>
   <br></br>
     <Divider/>
         <br></br>
@@ -355,12 +374,13 @@ width:"45px"}}/>
 float:"left",
 height:"45px",
 width:"45px"}}/>
-		</div>	
+		</div>
+    <CardActionArea href="https://www.bestcolleges.com/blog/college-application-deadlines/">
 	<div style={{marginLeft:"60px"}}>
-	<h8>Apply to College
+	<h8>College Application Deadlines for Fall 2022 Admission
 </h8>
 	
-	</div>
+	</div></CardActionArea>	
   <br></br>
     <Divider/>
         <br></br>
@@ -370,11 +390,12 @@ width:"45px"}}/>
 float:"left",
 height:"45px",
 width:"45px"}}/>
-		</div>	
+		</div>
+    <CardActionArea href="https://www.bestcolleges.com/blog/misconceptions-paying-for-college/">
 	<div style={{marginLeft:"60px"}}>
-	<h8>Paying for College</h8>
+	<h8>9 Common Misconceptions About Paying for College</h8>
 	
-	</div>
+	</div></CardActionArea>	
   <br></br>
     <Divider />
         <br></br>
@@ -385,10 +406,11 @@ float:"left",
 height:"45px",
 width:"45px"}}/>
 		</div>	
+    <CardActionArea href="https://www.bestcolleges.com/resources/sat-prep/">
 	<div style={{marginLeft:"60px"}}>
-	<h7>College Test Prep</h7>
+	<h7>SAT Prep Guide</h7>
 	
-	</div>
+	</div></CardActionArea>
   <br></br>
   <Divider />
         <br></br>
@@ -399,11 +421,12 @@ float:"left",
 height:"45px",
 width:"45px"}}/>
 		</div>	
+    <CardActionArea href="https://www.bestcolleges.com/resources/study-in-united-states/">
 	<div style={{marginLeft:"60px"}}>
-	<h7>Studying in the United States
+	<h7>International Students’ Guide to Studying in the USA
 </h7>
 	
-	</div>
+	</div></CardActionArea>
         
         </CardContent>
 
@@ -491,7 +514,7 @@ width:"45px"}}/>
         </Typography>
         {/* <br /> */}
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-           Liberal Art Collage
+           Liberal Art College
         </Typography>
 
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
@@ -499,7 +522,7 @@ width:"45px"}}/>
         </Typography>
 
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-       Regional Collages
+       Regional Colleges
         </Typography>
 
        

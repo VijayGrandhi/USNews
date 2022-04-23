@@ -6,3 +6,12 @@ export const getAPIData = async (chosenCategory) => {
   const json = await response.json();
   return json;
 };
+
+export const getEducationArticleAPIData = async ()=>{
+  var apiKey = "pub_6777cee85ee03b801f38209fa94ee452bb47";
+  var apiURL = `https://newsdata.io/api/1/news?apikey=${apiKey}&q=colleges`
+
+  const response = await fetch(apiURL);
+  const json = await response.json();
+  return json;
+}
