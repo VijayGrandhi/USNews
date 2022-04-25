@@ -30,6 +30,10 @@ const NavBar = () => {
 
      // do something here
     }
+    const handleButtonChange = e => {
+      navigate('/login');
+
+    }
   return (
     <div>
    
@@ -40,19 +44,22 @@ const NavBar = () => {
           <img
             alt=""
             src="https://www.usnews.com/static/img/usn-logo-large.svg"
-            width="150"
+            width="100"
             height="30"
             className="d-inline-block align-top"
           />
         </Navbar.Brand>
-        <Form style={{marginLeft:'auto'}} className="d-flex">
+        <Form style={{marginLeft:'auto'}} 
+        className="d-flex"
+        >
         <Form.Control
           type="search"
           placeholder="Search"
           className="me-2"
           aria-label="Search"
         />
-        <Button style={{backgroundColor:"white",color:'black'}}>Login</Button>
+        <Button onClick= {handleButtonChange}style={{backgroundColor:"white",color:'black'}}>Login</Button>
+        {/* <Button onClick= {handleButtonChange}style={{backgroundColor:"white",color:'black'}}>Sign up</Button> */}
       </Form>
     
     <Navbar.Toggle style={{color:'white'}}aria-controls="offcanvasNavbar" >  <DensityMediumIcon /></Navbar.Toggle>
@@ -123,8 +130,9 @@ const NavBar = () => {
             <NavDropdown.Item href="home">Home</NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title={<b style={{color:'white'}}>Health</b>} id="navbarScrollingDropdown">
-            <NavDropdown.Item href="#main">Main</NavDropdown.Item>
-            <NavDropdown.Item href="#other">Other</NavDropdown.Item>
+            <NavDropdown.Item href="health">Main</NavDropdown.Item>
+            <NavDropdown.Item href="hospitals">Hospitals</NavDropdown.Item>
+            <NavDropdown.Item href="doctors">Doctors</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="home">Home</NavDropdown.Item>
           </NavDropdown>
@@ -142,7 +150,7 @@ const NavBar = () => {
           <NavDropdown title="Signup/Login" id="navbarScrollingDropdown">
           <NavDropdown.Item href="/signin">Sign Up!</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="/login">Login</NavDropdown.Item>
+            {/* <NavDropdown.Item href="/login">Login</NavDropdown.Item> */}
           </NavDropdown>
         </Nav>
       </Container>
