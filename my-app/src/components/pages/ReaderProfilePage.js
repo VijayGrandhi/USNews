@@ -9,6 +9,8 @@ export const ReaderProfilePage = () => {
   const [data, setdata] = useState([]);
   const data1 = [];
 
+  
+
   useEffect(() => {
     Axios.post(
       "/getSavedArticles",
@@ -41,12 +43,15 @@ export const ReaderProfilePage = () => {
         {data.map((article) => (
           <div>
             <br />
-            <Card style={{ width: "25rem", height: "25rem", padding: "10px" }}>
+            <Card style={{ width: "25rem", height: "28rem", padding: "10px" }}>
               <Card.Img variant="top" src={article.ARTICLEURLTOIMAGE} />
               <Card.Body>
                 <Card.Title>{article.ARTICLEHEADER}</Card.Title>
                 <Card.Text>
-                  Some quick example text
+                  Likes: {article.LIKES} &nbsp;
+                  Comments: {article.COMMENTS} &nbsp;
+                  Saved: {article.SAVES}
+
                 </Card.Text>
               </Card.Body>
             </Card>

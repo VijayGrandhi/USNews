@@ -5,6 +5,7 @@ import { Form, Card, CardGroup, Button } from "react-bootstrap";
 
 export const JournalistProfilePage = () => {
   const token = localStorage.getItem("token");
+  const currentUser = localStorage.getItem("username");
   const [header, setheader] = useState([]);
   const [data, setdata] = useState([]);
   const [content, setcontent] = useState("");
@@ -18,21 +19,27 @@ export const JournalistProfilePage = () => {
     console.log("Header: ", inputHeader);
     console.log("Description: ", description);
     console.log("Author: ", inputauthor);
-    
-    Axios.post("//", {
-    // ARTICLEHEADER: inputHeader,
-    // ARTICLEDESC: description,
-    // ARTICLEAUTHOR: state.author,
-    // ARTICLEURL: state.url,
-    // ARTICLEURLTOIMAGE: state.urlToImage,
-    // PUBLISHEDAT: state.publishedAt,
-    // CONTENT: content,
-    }, {
+
+    Axios.post(
+      "/feedback",
+      {
+        username: currentUser,
+        ARTICLEHEADER: inputHeader,
+        ARTICLEDESC: description,
+        ARTICLEAUTHOR: inputauthor,
+        ARTICLEURL: null,
+        ARTICLEURLTOIMAGE: null,
+        PUBLISHEDAT: null,
+        CONTENT: content,
+        Datetime: Date().toLocaleString(),
+        COMMENTS: "saved",
+      },
+      {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      });
-    
+      }
+    );
   };
 
   useEffect(() => {
@@ -58,44 +65,39 @@ export const JournalistProfilePage = () => {
         <li>Username: {localStorage.getItem("username")}</li>
         <li>User Type: {localStorage.getItem("usertype")}</li>
         <li>Email: {localStorage.getItem("emailId")}</li>
-        {/* <li>Likes: {localStorage.getItem("likes")}</li>
-          <li>Comments: {localStorage.getItem("comments")}</li> */}
-        <li>Saved: {localStorage.getItem("saved")}</li>
-        {/* <button onClick={articleheader}>Click to get header in console log </button> */}
       </ul>
       <Form>
-        <Form.Group
-          
-          className="mb-3"
-          controlId="exampleForm.ControlTextarea1"
-        >
+        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>Type your article header below</Form.Label>
-          <input type="text" rows={3} onChange={(e) => setinputHeader(e.target.value)} />
-          
+          <input
+            type="text"
+            rows={3}
+            onChange={(e) => setinputHeader(e.target.value)}
+          />
         </Form.Group>
-        <Form.Group
-          
-          className="mb-3"
-          controlId="exampleForm.ControlTextarea1"
-        >
+        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>Type your article author below</Form.Label>
-          <Form.Control type="text" rows={3} onChange={(e) => setinputauthor(e.target.value)}/>
+          <Form.Control
+            type="text"
+            rows={3}
+            onChange={(e) => setinputauthor(e.target.value)}
+          />
         </Form.Group>
-        <Form.Group
-          
-          className="mb-3"
-          controlId="exampleForm.ControlTextarea1"
-        >
+        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>Type your article description below</Form.Label>
-          <Form.Control as="textarea" rows={3} onChange={(e) => setdescription(e.target.value)}/>
+          <Form.Control
+            as="textarea"
+            rows={3}
+            onChange={(e) => setdescription(e.target.value)}
+          />
         </Form.Group>
-        <Form.Group
-          
-          className="mb-3"
-          controlId="exampleForm.ControlTextarea1"
-        >
+        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>Type your article content below</Form.Label>
-          <Form.Control as="textarea" rows={5} onChange={(e) => setcontent(e.target.value)}/>
+          <Form.Control
+            as="textarea"
+            rows={5}
+            onChange={(e) => setcontent(e.target.value)}
+          />
         </Form.Group>
       </Form>
       <Button

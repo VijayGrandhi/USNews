@@ -20,7 +20,8 @@ const bodyParser = require('body-parser');
 const passport = require('passport')
 const path = require('path');
 const port=8001;
-const moment = require('moment')
+const moment = require('moment');
+const authservice = require('./services/authservice');
 app.locals.moment = moment;
 
 const connection = mysql.createConnection({
@@ -92,8 +93,21 @@ app.post('/articleDetails',test.authenticateToken,(req,res)=>{
 })
 
 app.get('/articles',(req,res)=>{
-    article.allarticle().then((data)=>{
+    articlesService.allarticle().then((data)=>{
         res.json(data);
+    })
+})
+
+app.post('/feedback',authservice.authenticateToken,(req,res)=>{
+    
+    articlesService.postComment(req.body).then((data)=>{
+        if(data==null)
+        {
+            res.json({data:'data not exists'})
+        }
+        else{
+           res.json(data);
+        }
     })
 })
 
