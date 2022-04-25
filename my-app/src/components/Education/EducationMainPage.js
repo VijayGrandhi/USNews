@@ -19,20 +19,23 @@ import { useNavigate } from 'react-router-dom';
 
 import CardMedia from '@mui/material/CardMedia';
 import Divider from '@mui/material/Divider';
-import { getEducationArticleAPIData } from "../pages/getAPIData";
+import { getAPIData, getEducationArticleAPIData } from "../pages/getAPIData";
 import SmallerCards from "../SmallerCards";
 const EducationMainPage = () => {
   const [article, setArticle] = useState([]);
+  const [eduNews, setEduNews] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    getEducationArticleAPIData().then((data)=>{
-      // console.log(data.results[0]);
-      setArticle(data.results[0]);
+    getAPIData("education").then((data)=>{
+      // console.log(data.articles)
+      setArticle(data.articles[0])
+      setEduNews(data.articles)
+
+
     })
 
   }, []);
-
-  console.log(article);
+console.log(eduNews)
   const handleClickOfEducation= e => {
     console.log('in hanlde click of education')
       e.preventDefault();
@@ -75,52 +78,54 @@ const EducationMainPage = () => {
         <Divider/>
        
       <CardContent>
-      <Typography sx={{ fontSize: 23 }} component="div" gutterBottom>
-        <CardActionArea href="https://www.aringo.com/mba-admission-chances-calculator/">
-        <b>What are your chances of admission for top MBA programs? </b>
+     
+
+      { eduNews && eduNews.slice(0,2).map((data)=>{
+        console.log('edunews...............');
+        console.log(data);
+        return <div>
+          <Typography  component="div" gutterBottom>
+        <CardActionArea href={data.url}>
+        <b style={{fontSize:20}}>{data.title} </b>
+      
         <Typography gutterBottom variant="h7" component="div">
-        Use our free and comprehensive MBA Odds estimation predictor to find out!
+        {data.description}
         </Typography>
         <Typography>
-     - Aringo’s Admissions Calculator 2022
+      -  {data.author} | {data.publishedAt}
         </Typography>
         </CardActionArea>
         </Typography>
+        <Divider />
+     <br></br>
+        </div>
         
         
-        <br></br>
-        <Divider/>
-        <br></br>
-        <CardActionArea href="https://childmind.org/article/what-to-do-if-your-child-is-bullying/">
-        <Typography sx={{ fontSize: 23 }} component="div" gutterBottom><b>My Child Is a Bully: What Should I Do?
-</b></Typography>
-       
-        <Typography gutterBottom variant="h7" component="div">
-        How to find out what's behind the bullying behavior, and foster healthy friendship skills
-</Typography>
-        <Typography>
-     - Brigit Katz
-        </Typography>
-        </CardActionArea>
+        
+      })}
+   
 
-        <br></br>
-        <Divider/>
-        <br></br>
-
-        <div>
+   { eduNews && eduNews.slice(2,6).map((data)=>{
+   return <div>
+     <div>
          
-			<img src='https://www.usnews.com/dims4/USNEWS/2ef211f/2147483647/thumbnail/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F2c%2F6e%2F8c8d4dd047af97090d6fc5947951%2Fgettyimages-1310989321.jpg' style={{marginLeft:"2%",
-float:"left",
-height:"40px",
-width:"40px"}}/>
-		</div>	
-    <CardActionArea href="https://blog.collegevine.com/pre-med-requirements/"><div style={{marginLeft:"60px"}}>
-	<h8>College Courses to Take Before Medical School</h8>
-	
-	</div></CardActionArea>
-  
-
-    <Divider/>
+         <img src={data.urlToImage} style={{marginLeft:"2%",
+   float:"left",
+   height:"40px",
+   width:"40px"}}/>
+       </div>	
+       <CardActionArea href={data.url}><div style={{marginLeft:"60px"}}>
+     <h8>{data.title}</h8>
+     
+     </div></CardActionArea>
+     
+     <Divider />
+     <br></br>
+   </div>
+   
+   })}
+        
+    {/* <Divider/>
         <br></br>
 
         <div>
@@ -136,9 +141,9 @@ width:"40px"}}/>
 	</div></CardActionArea>
 
     <Divider/>
-        <br></br>
+        <br></br> */}
 
-        <div>
+        {/* <div>
 			<img src='https://www.usnews.com/dims4/USNEWS/bc6be14/2147483647/thumbnail/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F8c%2Fb2%2Fa41e9e75490582b2a582f8cf71d1%2Fgettyimages-1318879382.jpg' style={{marginLeft:"2%",
 float:"left",
 height:"40px",
@@ -151,9 +156,9 @@ width:"40px"}}/>
 	</div></CardActionArea>
 
     <Divider/>
-        <br></br>
+        <br></br> */}
 
-        <div>
+        {/* <div>
 			<img src='https://www.usnews.com/dims4/USNEWS/1ff7d2d/2147483647/thumbnail/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F53%2F93%2F7690db8547e497ff86e4f862a53c%2Fgettyimages-484702178.jpg' style={{marginLeft:"2%",
 float:"left",
 height:"40px",
@@ -163,7 +168,7 @@ width:"40px"}}/>
 	<div style={{marginLeft:"60px"}}>
 	<h7>How to Improve Your Social Media Presence for College Admissions</h7>
 	
-	</div></CardActionArea>
+	</div></CardActionArea> */}
         
         </CardContent>
 
@@ -184,7 +189,7 @@ width:"40px"}}/>
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        backgroundImage: `url("${article.image_url}")`,
+        backgroundImage: `url("${article.urlToImage}")`,
       }}
     >
       {/* Increase the priority of the hero background image */}
@@ -209,12 +214,12 @@ width:"40px"}}/>
             }}
           >
             
-            <Typography component="h1" variant="h5" color="inherit" style={{fontWeight:'900'}}gutterBottom>
+            <Typography component="h1" variant="h5" color="inherit" style={{fontWeight:'900',color:'white'}}gutterBottom>
             {article.title}
             </Typography>
             <br></br>
             <Typography variant="h9" color="inherit" paragraph>
-            {article.creator} | {article.pubDate}
+            {article.author} | {article.publishedAt}
             </Typography>
             <Link style={{color:'white'}}variant="subtitle1" href="#">
               {article.description}
