@@ -27,6 +27,9 @@ import EventMainPage from "./components/Events/EventMainPage";
 import { ProfilePage } from "./components/pages/ProfilePage";
 import HealthMainPage from "./components/Health/HealthMainPage";
 import Hospitals from "./components/Health/Hospitals";
+import { ReaderProfilePage } from "./components/pages/ReaderProfilePage";
+import { JournalistProfilePage } from "./components/pages/JournalistProfilePage";
+
 
 
 function App() {
@@ -67,6 +70,8 @@ function App() {
           <Route path="/profile" element = {<ProfilePage />} />
           <Route path="health" element = {<HealthMainPage />} />
           <Route path="hospitals" element = {<Hospitals />} />
+          <Route path="/readerprofile" element = {<ReaderProfilePage />} />
+          <Route path="/journalistprofile" element = {<JournalistProfilePage />} />
           
 
         </Routes>

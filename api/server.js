@@ -90,13 +90,12 @@ app.post('/articleDetails',test.authenticateToken,(req,res)=>{
         }
     })
 })
+
 app.get('/articles',(req,res)=>{
     article.allarticle().then((data)=>{
         res.json(data);
     })
 })
-
-
 
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));

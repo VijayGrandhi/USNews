@@ -16,18 +16,20 @@ import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
 import Grid from '@mui/material/Grid';
 import { CardActionArea } from '@mui/material';
+import { getEducationArticleAPIData } from "../pages/getAPIData";
 
 const DetailedArticle = () => {
-  const [articles, setArticles] = useState([]);
+  const [article, setArticle] = useState([]);
 
   useEffect(() => {
-    // getAPIData("business").then((data) => {
-    //   console.log(data);
-    //   setArticles(data.articles);
-    // });
+    getEducationArticleAPIData().then((data)=>{
+      setArticle(data.results[0]);
+
+    })
+
   }, []);
 
-  console.log(articles);
+  console.log(article);
 
   return (
     <div>
@@ -45,15 +47,16 @@ const DetailedArticle = () => {
         <Typography color="text.primary">Education</Typography>
       </Breadcrumbs>
       <br />
-   <h1 style={{fontWeight:'800'}}>Helping Students Catch Up on Unfinished Learning
+   <h1 style={{fontWeight:'800'}}>
+   {article.title}
 </h1>
    {/* <br></br> */}
-   <p>Schools and parents can work together to help kids recover from COVID-related instructional loss.</p>
-   <p>By Maureen Ojiambo and Katherine Reynolds Lewis
+   <p>{article.description}</p>
+   <p>By {article.creator} 
 </p>
    {/* <Divider orientation="vertical"flexItem />   */}
    <p>
-   March 17, 2022, at 11:31 a.m.</p> 
+   {article.pubDate}</p> 
 <span style={{ display: "flex",
   justifyContent: "spaceBetween",
   width: "20%"}}> 
@@ -79,7 +82,7 @@ const DetailedArticle = () => {
          <CardMedia
           component="img"
           height="500"
-          image="https://www.usnews.com/dims4/USNEWS/d107612/2147483647/thumbnail/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F9c%2Fa2%2F0683f4314d99a2c58f1190867e2b%2Fgettyimages-1138450332.jpg"
+          image={article.image_url}
           alt="green iguana"
         />
         <CardContent>
@@ -87,7 +90,7 @@ const DetailedArticle = () => {
             BEST COUNTRIES
           </Typography> */}
           <Typography variant="body2" color="text.secondary">
-          While schools face the monumental challenge of making up for months of unfinished learning, parents have a role to play at home as well
+          {article.description}
            
           </Typography>
         
@@ -100,20 +103,8 @@ const DetailedArticle = () => {
     <br></br>
     <Divider  flexItem /> 
     <br></br> 
-    <p>Two years into the pandemic, public schools are struggling to help students recover from the extensive academic disruptions caused by COVID-19. While many students are lagging academically, suffering from what some educators call "unfinished learning," experts say there are steps teachers and parents can take to help kids catch up, and to minimize the impact on the rest of their academic journey.</p>
+    <p>{article.content}</p>
 
-    <p>“We should all feel an extreme sense of urgency around getting kids back on academic track,” says Dan Goldhaber, director of the Center for Analysis of Longitudinal Data in Education Research at the American Institutes for Research. “Not everybody is off track, but the great majority of kids are behind where they would have been had we not had a pandemic.”</p>
-
-
-   <p>Though some have used the term "COVID learning loss," most students did not actually slide backward in their learning during the pandemic. But research shows the majority did not make the gains expected in a typical year, and that achievement gaps have widened.
-
-</p>
-
-
-   <p>Students at high-poverty schools experienced the biggest setbacks, which have continued in the past year, says Megan Kuhfeld, a senior research scientist at the Collaborative for Student Growth at NWEA.</p>
- <p>An analysis by the consulting group McKinsey & Company found that, on average, students finished the 2020-21 school year five months behind in math and four months behind in reading — but at low-income schools, those gaps grew to seven months in math and six months in reading. Students at schools where a majority of students are Black or Hispanic also fell further behind, by six months in both math and reading for majority-Black schools and six months in math and five in reading for majority-Hispanic schools.
-
-</p>
    <Grid container spacing={3}>
   <Grid item xs={6} md={8}>
     <Card>
