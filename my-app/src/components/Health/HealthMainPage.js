@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import MainCard from "../MainCard";
 // import SmallerCards from "../SmallerCards";
 // import { getAPIData } from "./getAPIData";
 import Breadcrumbs from '@mui/material/Breadcrumbs';
@@ -19,23 +18,17 @@ import { useNavigate } from 'react-router-dom';
 
 import CardMedia from '@mui/material/CardMedia';
 import Divider from '@mui/material/Divider';
-import { getAPIData, getEducationArticleAPIData } from "../pages/getAPIData";
-import SmallerCards from "../SmallerCards";
-const EducationMainPage = () => {
-  const [article, setArticle] = useState([]);
-  const [eduNews, setEduNews] = useState([]);
+const HealthMainPage = () => {
+  const [articles, setArticles] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    getAPIData("education").then((data)=>{
-      // console.log(data.articles)
-      setArticle(data.articles[0])
-      setEduNews(data.articles)
-
-
-    })
-
+    // getAPIData("business").then((data) => {
+    //   console.log(data);
+    //   setArticles(data.articles);
+    // });
   }, []);
-console.log(eduNews)
+
+  console.log(articles);
   const handleClickOfEducation= e => {
     console.log('in hanlde click of education')
       e.preventDefault();
@@ -52,15 +45,13 @@ console.log(eduNews)
        // do something here
       }
   return (
-    
     <div>
-      
          <Breadcrumbs aria-label="breadcrumb">
         <Link underline="hover" color="inherit" href="/">
           Home
         </Link>
        
-        <Typography color="text.primary">Education</Typography>
+        <Typography color="text.primary">Health</Typography>
       </Breadcrumbs>
       <br />
     <Grid container spacing={3}>
@@ -73,102 +64,88 @@ console.log(eduNews)
         alt="green iguana"
       /> */}
        <Typography style={{textAlign:'center'}}sx={{ fontSize: 1 }} gutterBottom>
-       <h7 style={{fontWeight:'900'}}>EDUCATION NEWS</h7>
+       <h7 style={{fontWeight:'900'}}>HEALTH NEWS</h7>
         </Typography>
         <Divider/>
        
       <CardContent>
-     
-
-      { eduNews && eduNews.slice(0,2).map((data)=>{
-        console.log('edunews...............');
-        console.log(data);
-        return <div>
-          <Typography  component="div" gutterBottom>
-        <CardActionArea href={data.url}>
-        <b style={{fontSize:20}}>{data.title} </b>
-      
+      <Typography sx={{ fontSize: 23 }} component="div" gutterBottom><b>What to Know About the Carnivore Diet</b></Typography>
         <Typography gutterBottom variant="h7" component="div">
-        {data.description}
+        This very restrictive diet is a meat lover’s special.
+        </Typography>
+     
+     
+        <Typography>
+     - Elaine K. HowleyApril 22, 2022
+        </Typography>
+        <br></br>
+        <Divider/>
+        <br></br>
+        <Typography sx={{ fontSize: 23 }} component="div" gutterBottom><b>Lower Body Workouts That Get Results</b></Typography>
+       
+        <Typography gutterBottom variant="h7" component="div">
+        Add strength, stability and endurance to the lower body for better quality of life and improved sports performance.
         </Typography>
         <Typography>
-      -  {data.author} | {data.publishedAt}
+     - Elaine K. HowleyApril 21, 2022
         </Typography>
-        </CardActionArea>
-        </Typography>
-        <Divider />
-     <br></br>
-        </div>
-        
-        
-        
-      })}
-   
 
-   { eduNews && eduNews.slice(2,6).map((data)=>{
-   return <div>
-     <div>
-         
-         <img src={data.urlToImage} style={{marginLeft:"2%",
-   float:"left",
-   height:"40px",
-   width:"40px"}}/>
-       </div>	
-       <CardActionArea href={data.url}><div style={{marginLeft:"60px"}}>
-     <h8>{data.title}</h8>
-     
-     </div></CardActionArea>
-     
-     <Divider />
-     <br></br>
-   </div>
-   
-   })}
-        
-    {/* <Divider/>
+        <br></br>
+        <Divider/>
         <br></br>
 
         <div>
-			<img src='https://www.usnews.com/dims4/USNEWS/4984b27/2147483647/crop/2119x1413%2B0%2B0/resize/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2Fca%2Fe9%2F15061a5e4df6b79e44dcc5da9697%2Fgettyimages-651138488.jpg' style={{marginLeft:"2%",
+			<img src='https://www.usnews.com/dims4/USNEWS/0b7d187/2147483647/resize/300x%3E/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F9e%2F6b%2F18b3ba584092acd0a0334862a34a%2Fgettyimages-1062210408.jpg' style={{marginLeft:"2%",
 float:"left",
 height:"40px",
 width:"40px"}}/>
 		</div>	
-    <CardActionArea href="https://www.weadmit.com/blog/5-common-mistakes-international-students-make-on-college-applications"><div style={{marginLeft:"60px"}}>
-    
-	<h8>5 Common Mistakes International Students Make On College Applications  </h8>
-	
-	</div></CardActionArea>
-
-    <Divider/>
-        <br></br> */}
-
-        {/* <div>
-			<img src='https://www.usnews.com/dims4/USNEWS/bc6be14/2147483647/thumbnail/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F8c%2Fb2%2Fa41e9e75490582b2a582f8cf71d1%2Fgettyimages-1318879382.jpg' style={{marginLeft:"2%",
-float:"left",
-height:"40px",
-width:"40px"}}/>
-		</div>	
-	<CardActionArea href="https://www.healthaffairs.org/do/10.1377/forefront.20220127.264905">
-  <div style={{marginLeft:"60px"}}>
-	<h8>Food Insecurity On College Campuses: The Invisible Epidemic</h8>
-	
-	</div></CardActionArea>
-
-    <Divider/>
-        <br></br> */}
-
-        {/* <div>
-			<img src='https://www.usnews.com/dims4/USNEWS/1ff7d2d/2147483647/thumbnail/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F53%2F93%2F7690db8547e497ff86e4f862a53c%2Fgettyimages-484702178.jpg' style={{marginLeft:"2%",
-float:"left",
-height:"40px",
-width:"40px"}}/>
-		</div>	
-    <CardActionArea href="https://wtop.com/news/2022/03/how-to-improve-your-social-media-presence-for-college-admissions/">
 	<div style={{marginLeft:"60px"}}>
-	<h7>How to Improve Your Social Media Presence for College Admissions</h7>
+	<h8>Do You Need to Exercise to Lose Weight?</h8>
 	
-	</div></CardActionArea> */}
+	</div>
+
+    <Divider/>
+        <br></br>
+
+        <div>
+			<img src='https://www.usnews.com/dims4/USNEWS/63592b4/2147483647/resize/300x%3E/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F9e%2F3d%2Fd11e8d40414b8d69659eae1efd85%2Fgettyimages-1143400985.jpg' style={{marginLeft:"2%",
+float:"left",
+height:"40px",
+width:"40px"}}/>
+		</div>	
+	<div style={{marginLeft:"60px"}}>
+	<h8>How to Prepare for Your First Physical Therapy Session</h8>
+	
+	</div>
+
+    <Divider/>
+        <br></br>
+
+        <div>
+			<img src='https://www.usnews.com/dims4/USNEWS/2131a08/2147483647/crop/2121x1414%2B0%2B0/resize/300x300%3E/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2Fd7%2F26%2F23259c644df0b7ad25ae69d82407%2Fdentist.jpg' style={{marginLeft:"2%",
+float:"left",
+height:"40px",
+width:"40px"}}/>
+		</div>	
+	<div style={{marginLeft:"60px"}}>
+	<h8>How to Find a Good Dentist? Trust Is the Bedrock</h8>
+	
+	</div>
+
+    <Divider/>
+        <br></br>
+
+        <div>
+			<img src='https://www.usnews.com/dims4/USNEWS/95dbe93/2147483647/crop/2124x1411%2B0%2B0/resize/300x300%3E/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2Fcf%2F2d%2Fe54206254aaeb2dc5e274f2d0602%2F210212-clearsoup-stock.jpg' style={{marginLeft:"2%",
+float:"left",
+height:"40px",
+width:"40px"}}/>
+		</div>	
+	<div style={{marginLeft:"60px"}}>
+	<h7>Low Residue Diet</h7>
+	
+	</div>
         
         </CardContent>
 
@@ -181,7 +158,7 @@ width:"40px"}}/>
    <Paper
    
       sx={{
-        height:'65%',
+        height:'65s%',
         position: 'relative',
         backgroundColor: 'grey.800',
         color: '#fff',
@@ -189,7 +166,7 @@ width:"40px"}}/>
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        backgroundImage: `url("${article.urlToImage}")`,
+        backgroundImage: `url("https://www.usnews.com/dims4/USNEWS/b95a8a8/2147483647/resize/300x%3E/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F65%2F44%2F67addf0e4abf998a1d5e4d2a4119%2Fgettyimages-1365749374.jpg")`,
       }}
     >
       {/* Increase the priority of the hero background image */}
@@ -213,42 +190,51 @@ width:"40px"}}/>
               pr: { md: 0 },
             }}
           >
-            
-            <Typography component="h1" variant="h5" color="inherit" style={{fontWeight:'900',color:'white'}}gutterBottom>
-            {article.title}
+            <Typography component="h1" variant="h5" color="inherit" style={{fontWeight:'900'}}gutterBottom>
+            PATIENT ADVICE
             </Typography>
             <br></br>
-            <Typography variant="h9" color="inherit" paragraph>
-            {article.author} | {article.publishedAt}
+            <Typography variant="h4" color="inherit" paragraph>
+            Best Pill Organizers and Pill Dispenser
             </Typography>
             <Link style={{color:'white'}}variant="subtitle1" href="#">
-              {article.description}
+            By Vanessa Caceres | April 22, 2022
+
+
             </Link>
           </Box>
         </Grid>
       </Grid>
     </Paper>
 </div>
-    <CardActionArea component="a" href="https://nces.ed.gov/collegenavigator/">
+    <CardActionArea component="a" href="#">
+      <Grid item  sm={12} md={12}>
         <Card sx={{ display: 'flex' }}>
           <CardContent sx={{ flex: 1 }}>
-            <Typography component="h2" variant="h5">
-            National Center for Education Statistics | College Navigator
+            <Typography component="h5" variant="h5">
+           WELLNESS
             </Typography>
             <br></br>
             <Typography variant="subtitle1" color="text.secondary">
-            Unlock our comprehensive data, rankings and interactive tools to help you and your child choose the right college.           </Typography>
+            There’s help to stop you from leaking when you laugh, cough or sneeze.
+              </Typography>
            <br></br>
-            <Button style={{backgroundColor:'#CE2927'}}variant="contained">Unlock with College Navigator</Button>
+           <Typography variant="subtitle1" color="text.secondary">
+           By Lisa Esposito | April 22, 2022, at 3:33 p.m.
+           </Typography>
 
           </CardContent>
-          <CardMedia
+          {/* <CardMedia
             component="img"
             sx={{ width: 220, display: { xs: 'none', sm: 'block' } }}
             image="https://www.usnews.com/static-atlas/assets/img/news/best-countries/logos/best-countries.svg"
             alt=""
-          />
+          /> */}
         </Card>
+        </Grid>
+
+    
+        
       </CardActionArea>
     </Grid>
     <Grid item  sm={6} md={3}>
@@ -264,30 +250,30 @@ width:"40px"}}/>
         />
       
         <Typography style={{textAlign:'center'}}sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>
-       <b>Education Rankings</b>
+       <b>Health Rankings</b>
         </Typography>
         <Typography style={{textAlign:'center'}}sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>Life's Decisions Made Here</Typography>
         <Divider />
         <Typography style={{lineHeight:'35px'}}variant="h5" component="div">
         <Divider />
  
-        <b>Best National Universities</b>
+        <b>2021-22 Hospitals Honor Roll</b>
         </Typography>
 
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-             <StarIcon style={{fontSize:'medium'}}/>   #1    Princeton University
+             <StarIcon style={{fontSize:'medium'}}/>   #1    Mayo Clinic
         </Typography>
         {/* <br /> */}
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-        <StarIcon style={{fontSize:'medium'}}/>     #2 Columbia University
+        <StarIcon style={{fontSize:'medium'}}/>     #2 Cleveland Clinic
         </Typography>
 
         <Typography style={{lineHeight:'35px'}} variant="h10" component="div">
-        <StarIcon style={{fontSize:'medium'}}/>     #2 Havard University
+        <StarIcon style={{fontSize:'medium'}}/>     #3 UCLA Medical Center
         </Typography>
 
         <Typography style={{lineHeight:'35px'}} variant="h10" component="div">
-        <StarIcon style={{fontSize:'medium'}}/>     #2 Massachusetts Institute of Technology
+        <StarIcon style={{fontSize:'medium'}}/>     #4 Johns Hopkins Hospital
         </Typography>
        
         <Button onClick={handleClickOfRanking} variant="contained">See Full Ranking List</Button>
@@ -297,32 +283,31 @@ width:"40px"}}/>
         <Typography style={{lineHeight:'35px'}} variant="h5" component="div">
         <Divider />
   
-        <b>All Education Rankings</b>
+        <b>All Health Rankings and Ratings</b>
         </Typography>
 
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-           Best Colleges
+        Best Hospitals
         </Typography>
         {/* <br /> */}
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-           Best Graduate School
+        Best Children’s Hospitals
         </Typography>
 
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-       Best Online College
+        Best Insurance Companies        </Typography>
+
+        <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
+        Best Diets
         </Typography>
 
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-       Best Global University
-        </Typography>
+        Doctors        </Typography>
+        <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
+        Best Nursing Homes
 
-        <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-       High School
         </Typography>
-        <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-       K-8 school
-        </Typography>
-        <Button variant="contained">All Education Ranking Methodologies</Button>
+        {/* <Button variant="contained">All Education Ranking Methodologies</Button> */}
       </CardContent>
 
 
@@ -336,7 +321,7 @@ width:"40px"}}/>
     <br></br>
     <br></br>
     <Grid item xs={12} md={12}>
-   <h3 style={{fontWeight:'900'}}>BEST COLLEGES</h3>
+   <h3 style={{fontWeight:'900'}}>BEST HOSPITALS</h3>
    </Grid>
   
     <Divider />
@@ -349,7 +334,7 @@ width:"40px"}}/>
         alt="green iguana"
       /> */}
        <Typography style={{textAlign:'center'}}sx={{ fontSize: 1 }} gutterBottom>
-       <h7 style={{fontWeight:'900'}}>EDUCATION NEWS</h7>
+       <h7 style={{fontWeight:'900'}}>HEALTH NEWS</h7>
         </Typography>
         <Divider/>
        
@@ -361,16 +346,14 @@ width:"40px"}}/>
 			<img src='https://www.usnews.com/dims4/USNEWS/e67fcb9/2147483647/crop/3271x2182%2B2%2B0/resize/970x647/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F7a%2Fe2%2Fd0c79cd143ce9182db63cce4bd5c%2Fgettyimages-1318330841.jpg' style={{marginLeft:"2%",
 float:"left",
 height:"45px",
-width:"45px"}}/>
+width:"45px"}}
+/>
 		</div>	
-    <CardActionArea href="https://www.bestcolleges.com/blog/how-to-choose-the-right-college/">
 	<div style={{marginLeft:"60px"}}>
-	<h8>How to Choose a College
-
+	<h8>Best Hospitals Honor Roll and Overview
 </h8>
 	
-	</div></CardActionArea>
-  <br></br>
+	</div>
     <Divider/>
         <br></br>
 
@@ -379,14 +362,12 @@ width:"45px"}}/>
 float:"left",
 height:"45px",
 width:"45px"}}/>
-		</div>
-    <CardActionArea href="https://www.bestcolleges.com/blog/college-application-deadlines/">
+		</div>	
 	<div style={{marginLeft:"60px"}}>
-	<h8>College Application Deadlines for Fall 2022 Admission
+	<h8>Best Hospitals Speciality Rankings
 </h8>
 	
-	</div></CardActionArea>	
-  <br></br>
+	</div>
     <Divider/>
         <br></br>
 
@@ -395,13 +376,12 @@ width:"45px"}}/>
 float:"left",
 height:"45px",
 width:"45px"}}/>
-		</div>
-    <CardActionArea href="https://www.bestcolleges.com/blog/misconceptions-paying-for-college/">
+		</div>	
 	<div style={{marginLeft:"60px"}}>
-	<h8>9 Common Misconceptions About Paying for College</h8>
+	<h8>How and Why We Rank and Rate Hospitals</h8>
 	
-	</div></CardActionArea>	
-  <br></br>
+	</div>
+  
     <Divider />
         <br></br>
 
@@ -411,11 +391,10 @@ float:"left",
 height:"45px",
 width:"45px"}}/>
 		</div>	
-    <CardActionArea href="https://www.bestcolleges.com/resources/sat-prep/">
 	<div style={{marginLeft:"60px"}}>
-	<h7>SAT Prep Guide</h7>
+	<h7>College Test Prep</h7>
 	
-	</div></CardActionArea>
+	</div>
   <br></br>
   <Divider />
         <br></br>
@@ -426,12 +405,11 @@ float:"left",
 height:"45px",
 width:"45px"}}/>
 		</div>	
-    <CardActionArea href="https://www.bestcolleges.com/resources/study-in-united-states/">
 	<div style={{marginLeft:"60px"}}>
-	<h7>International Students’ Guide to Studying in the USA
+	<h7>Studying in the United States
 </h7>
 	
-	</div></CardActionArea>
+	</div>
         
         </CardContent>
 
@@ -519,7 +497,7 @@ width:"45px"}}/>
         </Typography>
         {/* <br /> */}
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-           Liberal Art College
+           Liberal Art Collage
         </Typography>
 
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
@@ -527,7 +505,7 @@ width:"45px"}}/>
         </Typography>
 
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-       Regional Colleges
+       Regional Collages
         </Typography>
 
        
@@ -544,4 +522,4 @@ width:"45px"}}/>
   );
 };
 
-export default EducationMainPage;
+export default HealthMainPage;

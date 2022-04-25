@@ -21,12 +21,15 @@ import ForumTile from "./components/pages/ForumTiles";
 import DetailedArticle from "./components/Education/DeatiledArticle";
 import EducationRankingList from "./components/Education/EducationRankingList";
 import UniversityRanking from "./components/Education/UniversityRanking";
-import SignIn from "./components/SignIn";
 import ElectionPage from "./components/Election/ElectionMainFile";
 import ElectionDetailed from "./components/Election/ElectionDetailed";
 import EventMainPage from "./components/Events/EventMainPage";
+import { ProfilePage } from "./components/pages/ProfilePage";
+import HealthMainPage from "./components/Health/HealthMainPage";
+import Hospitals from "./components/Health/Hospitals";
 import { ReaderProfilePage } from "./components/pages/ReaderProfilePage";
 import { JournalistProfilePage } from "./components/pages/JournalistProfilePage";
+
 
 
 function App() {
@@ -64,13 +67,16 @@ function App() {
           <Route path="election" element = {<ElectionPage />} />
           <Route path="electionDetailed" element = {<ElectionDetailed />} />
           <Route path="event" element = {<EventMainPage />} />
+          <Route path="/profile" element = {<ProfilePage />} />
+          <Route path="health" element = {<HealthMainPage />} />
+          <Route path="hospitals" element = {<Hospitals />} />
           <Route path="/readerprofile" element = {<ReaderProfilePage />} />
           <Route path="/journalistprofile" element = {<JournalistProfilePage />} />
           
-          
+
         </Routes>
       </BrowserRouter>
-      <Footer />
+      {/* <Footer /> */}
       {/* <Comments currentUserId = "1"/> */}
     </div>
   );
