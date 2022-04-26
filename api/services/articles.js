@@ -51,15 +51,26 @@ module.exports = {
             db.AllArticles().then((data)=>{
                 responsetest=[];
                 for(i=0;i<data.length;i++){
-                    data[i]["comments_list"] = [];
-                      db.getComments(data[i].ARTICLEHEADER).then((comments)=>{
-                        data[i]["comments_list"].push(comments);
-                      })
+                    // data[i]["comments_list"] = [];
+                    //   db.getComments(data[i].ARTICLEHEADER).then((comments)=>{
+                    //     data[i]["comments_list"].push(comments);
+                    //   })
                       responsetest.push(data[i]);
 
                 }
                 resolve(responsetest)
             })
+        })
+    },
+    postComment:function(request){
+        return new Promise((resolve,reject)=>{
+            console.log(request.ARTICLEHEADER)
+            
+            db.SaveArticleData(request.ARTICLEHEADER,request.ARTICLEDESC,request.ARTICLEAUTHOR,request.ARTICLEURL,request.ARTICLEURLTOIMAGE,request.PUBLISHEDAT,request.CONTENT,request.COMMENTS,request.username,request.datetime).then((data)=>{
+                console.log("hello")
+                resolve(data);
+            })
+
         })
     },
 }

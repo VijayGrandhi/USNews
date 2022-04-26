@@ -2,7 +2,7 @@ import React from "react";
 import { Comments } from "../comment/Comments";
 import Container from "react-bootstrap/Container";
 import { useLocation, Link } from "react-router-dom";
-import { Axios } from "axios";
+import Axios  from "axios";
 import { Checkbox } from "@mui/material";
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
@@ -19,20 +19,21 @@ export const ArticleBody = () => {
   const state = location.state;
   console.log(state);
 
-  const sendLikedArticle = () => {
+  const sendLikedArticle = (action) => {
+    console.log(action);
     Axios.post(
       "/feedback",
       {
-        // ARTICLEHEADER: state.title,
-        // ARTICLEDESC: state.description,
-        // ARTICLEAUTHOR: state.author,
-        // ARTICLEURL: state.url,
-        // ARTICLEURLTOIMAGE: state.urlToImage,
-        // PUBLISHEDAT: state.publishedAt,
-        // CONTENT: state.content,
-        // LIKES:,
-        // SAVES:,
-        // COMMENTS:
+        username: currentUser,
+        ARTICLEHEADER: state.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&',' '),
+        ARTICLEDESC: state.description.replace(/[.*+?^${}()|[\]\\]/g, '\\$&',' '),
+        ARTICLEAUTHOR: state.author.replace(/[.*+?^${}()|[\]\\]/g, '\\$&',' '),
+        ARTICLEURL: state.url,
+        ARTICLEURLTOIMAGE: state.urlToImage,
+        PUBLISHEDAT: state.publishedAt,
+        CONTENT: state.content.replace(/[.*+?^${}()|[\]\\]/g, '\\$&',' '),
+        Datetime: Date().toLocaleString(),
+        COMMENTS: action
       },
       {
         headers: {
@@ -54,14 +55,14 @@ export const ArticleBody = () => {
         {...label}
         icon={<FavoriteBorder />}
         checkedIcon={<Favorite />}
-        onClick ={sendLikedArticle}
+        onClick ={() => sendLikedArticle('like')}
       />
 
       <Checkbox
         {...label}
         icon={<BookmarkBorderIcon />}
         checkedIcon={<BookmarkIcon />}
-        onClick ={sendLikedArticle}
+        onClick ={() => sendLikedArticle('saved')}
       />
 
       <p>{state.content}</p>
