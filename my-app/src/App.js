@@ -24,7 +24,6 @@ import UniversityRanking from "./components/Education/UniversityRanking";
 import ElectionPage from "./components/Election/ElectionMainFile";
 import ElectionDetailed from "./components/Election/ElectionDetailed";
 import EventMainPage from "./components/Events/EventMainPage";
-import { ProfilePage } from "./components/pages/ProfilePage";
 import HealthMainPage from "./components/Health/HealthMainPage";
 import Hospitals from "./components/Health/Hospitals";
 import { ReaderProfilePage } from "./components/pages/ReaderProfilePage";
@@ -45,7 +44,7 @@ function App() {
           <Route path='' element = {<Home />} />
           <Route path="trending" element = {<Trending />} />
           <Route path="articlebody" element = {<ArticleBody />} />
-          <Route path="/signin" element = {<Signup />} />
+          <Route path="/signup" element = {<Signup />} />
           <Route path="/login" element = {<Login />} />
           <Route path="forums" element = {<Forums/>} />
           <Route path="forumtiles" element = {<ForumTile/>} />
@@ -67,7 +66,7 @@ function App() {
           <Route path="election" element = {<ElectionPage />} />
           <Route path="electionDetailed" element = {<ElectionDetailed />} />
           <Route path="event" element = {<EventMainPage />} />
-          <Route path="/profile" element = {<ProfilePage />} />
+        
           <Route path="health" element = {<HealthMainPage />} />
           <Route path="hospitals" element = {<Hospitals />} />
           <Route path="/readerprofile" element = {<ReaderProfilePage />} />

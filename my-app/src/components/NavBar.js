@@ -147,11 +147,7 @@ const NavBar = () => {
             <NavDropdown.Divider />
             <NavDropdown.Item href="home">Home</NavDropdown.Item>
           </NavDropdown>
-          <NavDropdown title="Signup/Login" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="/signin">Sign Up!</NavDropdown.Item>
-            <NavDropdown.Divider />
-            {/* <NavDropdown.Item href="/login">Login</NavDropdown.Item> */}
-          </NavDropdown>
+          
           <Nav.Link href="/readerprofile">Reader Profile</Nav.Link>
           <Nav.Link href="/journalistprofile">Journalist Profile</Nav.Link>
 
