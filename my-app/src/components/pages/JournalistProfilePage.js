@@ -2,6 +2,8 @@ import Axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { Form, Card, CardGroup, Button } from "react-bootstrap";
+import { CardActionArea } from '@mui/material';
+import {Link} from "react-router-dom";
 
 export const JournalistProfilePage = () => {
   const token = localStorage.getItem("token");
@@ -111,7 +113,8 @@ export const JournalistProfilePage = () => {
         {data.map((article) => (
           <div>
             <br />
-            <Card style={{ width: "25rem", height: "25rem", padding: "10px" }}>
+            <Card style={{ width: "25rem", height: "28rem", padding: "10px" }}>
+            <CardActionArea> 
               <Card.Img variant="top" src={article.ARTICLEURLTOIMAGE!==undefined ?article.ARTICLEURLTOIMAGE : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb5q6gS7QEtuygd3qTwpE3DVjpTrkraqtHEZTdgGmscTNxZVWK3td6ALoU2OMjPjs_-A4&usqp=CAU"} />
               <Card.Body>
                 <Card.Title>{article.ARTICLEHEADER}</Card.Title>
@@ -122,6 +125,8 @@ export const JournalistProfilePage = () => {
                   Comments: {article.COMMENTS} &nbsp;
                   Saved: {article.SAVES}</Card.Text>
               </Card.Body>
+              <Link to="/profilearticlebody" state={article}>Read Article</Link>
+              </CardActionArea>
             </Card>
           </div>
         ))}
