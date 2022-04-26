@@ -3,6 +3,8 @@ import NavBar from "./components/NavBar";
 import Home from "./components/pages/Home";
 import Trending from "./components/pages/Trending";
 import { ArticleBody } from "./components/articlebody/ArticleBody";
+import { ProfileArticleBody } from "./components/articlebody/ProfileArticleBody";
+
 import { Comments } from "./components/comment/Comments";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
@@ -53,6 +55,7 @@ function App() {
           <Route path='home' element = {<Home />} />
           <Route path="trending" element = {<Trending />} />
           <Route path="articlebody" element = {<ArticleBody />} />
+          <Route path="profilearticlebody" element = {<ProfileArticleBody />} />
           <Route path="newsSection" element = {<FirstPageNews />} />
           <Route path="countries" element = {<CountryMainPage />} />
           {/* <Route path="detailedNews" element = {<} /> */}
