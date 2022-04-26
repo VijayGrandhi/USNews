@@ -25,13 +25,13 @@ export const ArticleBody = () => {
       "/feedback",
       {
         username: currentUser,
-        ARTICLEHEADER: state.title,
-        ARTICLEDESC: state.description,
-        ARTICLEAUTHOR: state.author,
+        ARTICLEHEADER: state.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&',' '),
+        ARTICLEDESC: state.description.replace(/[.*+?^${}()|[\]\\]/g, '\\$&',' '),
+        ARTICLEAUTHOR: state.author.replace(/[.*+?^${}()|[\]\\]/g, '\\$&',' '),
         ARTICLEURL: state.url,
         ARTICLEURLTOIMAGE: state.urlToImage,
         PUBLISHEDAT: state.publishedAt,
-        CONTENT: state.content,
+        CONTENT: state.content.replace(/[.*+?^${}()|[\]\\]/g, '\\$&',' '),
         Datetime: Date().toLocaleString(),
         COMMENTS: action
       },

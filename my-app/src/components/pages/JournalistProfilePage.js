@@ -60,7 +60,7 @@ export const JournalistProfilePage = () => {
 
   return (
     <div>
-      <h1>Welcome to your profile page</h1>
+      <h1>Welcome to your profile page!</h1>
       <ul>
         <li>Username: {localStorage.getItem("username")}</li>
         <li>User Type: {localStorage.getItem("usertype")}</li>
@@ -112,10 +112,15 @@ export const JournalistProfilePage = () => {
           <div>
             <br />
             <Card style={{ width: "25rem", height: "25rem", padding: "10px" }}>
-              <Card.Img variant="top" src={article.ARTICLEURLTOIMAGE} />
+              <Card.Img variant="top" src={article.ARTICLEURLTOIMAGE!==undefined ?article.ARTICLEURLTOIMAGE : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb5q6gS7QEtuygd3qTwpE3DVjpTrkraqtHEZTdgGmscTNxZVWK3td6ALoU2OMjPjs_-A4&usqp=CAU"} />
               <Card.Body>
                 <Card.Title>{article.ARTICLEHEADER}</Card.Title>
-                <Card.Text>Some quick example text</Card.Text>
+                <Card.Text>  
+                  {article.ARTICLEDESC}
+                  <br/>
+                  Likes: {article.LIKES} &nbsp;
+                  Comments: {article.COMMENTS} &nbsp;
+                  Saved: {article.SAVES}</Card.Text>
               </Card.Body>
             </Card>
           </div>

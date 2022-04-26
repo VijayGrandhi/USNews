@@ -152,83 +152,105 @@ module.exports = {
       });
     });
   },
-  SaveArticleData: function (
-    ARTICLEHEADER,
-    ARTICLEDESC,
-    ARTICLEAUTHOR,
-    ARTICLEURL,
-    ARTICLEURLTOIMAGE,
-    PUBLISHEDAT,
-    CONTENT,
-    COMMENTS,
-    username,
-    Datetime
-  ) {
-    return new Promise((resolve, reject) => {
-      query =
-      "select * from ARTICLEDETAILS where ARTICLEHEADER='" +
-      ARTICLEHEADER +
-      "'";
-      connection.query(query, (err, rows, fields) => {
-        if (err) {
-          console.log("error found")
-          reject(err.message);
-        } else {
-          console.log("test1")
-          if ((rows.length == 0)) {
-            if (COMMENTS == "like") {
-              key = "'1','0','0'";
-            } else if (COMMENTS == "saved") {
-              key = "'0','1','0'";
-            } else {
-              key = "'0','0','1'";
-            }
+  SaveArticleData:function(ARTICLEHEADER,ARTICLEDESC,ARTICLEAUTHOR,ARTICLEURL,ARTICLEURLTOIMAGE,PUBLISHEDAT,CONTENT,COMMENTS,username,Datetime)
+    {
+        return new Promise((resolve,reject)=>{
+            query="select ARTICLEHEADER from ARTICLEDETAILS where ARTICLEHEADER='"+ARTICLEHEADER+"'";
+            console.log(query);
+                         connection.query(query,(err,rows,fields)=>{
+                 if(err){
+                       reject(err.message)
+                 }
+                 else{
+                     console.log("working");
+                 if(rows.length==0){
+                     if(COMMENTS=='like'){
+                        console.log("working");
 
-            query1 =
-              "insert into ARTICLEDETAILS(ARTICLEHEADER,ARTICLEDESC ,ARTICLEAUTHOR,ARTICLEURL,ARTICLEURLTOIMAGE,PUBLISHEDAT,CONTENT,LIKES,SAVES,COMMENTS) VALUES('" +
-              ARTICLEHEADER +
-              "','" +
-              ARTICLEDESC +
-              "','" +
-              ARTICLEAUTHOR +
-              "','" +
-              ARTICLEURL +
-              "','" +
-              ARTICLEURLTOIMAGE +
-              "','" +
-              PUBLISHEDAT +
-              "','" +
-              CONTENT +
-              "'," +
-              key +
-              ")";
-            connection.query(query1, (error, row, field) => {
-              if (error) {
-                reject(error.message);
-              } else {
-                query2 =
-                  "insert into ARTICLECOMMENTS(COMMENTS ,USERNAME,DATEANDTIME,ARTICLEHEADER) VALUES('" +
-                  COMMENTS +
-                  "','" +
-                  username +
-                  "','" +
-                  Datetime +
-                  "','" +
-                  ARTICLEHEADER +
-                  "');";
-                connection.query(query2, (errors, roww, feildds) => {
-                  if (errors) {
-                    reject(errors.message);
-                  } else {
-                    resolve(rows[0]);
-                  }
-                });
-              }
-            });
-          } else {
-          }
-        }
-      });
-    });
-  },
+                         key="'1','0','0'";
+                     }
+                     else if(COMMENTS=='saved'){
+                        console.log("savking");
+
+                         key="'0','1','0'";
+                     }
+                     else{
+                        console.log("comming");
+
+                         key="'0','0','1'";
+                     }
+
+                    query1="insert into ARTICLEDETAILS(ARTICLEHEADER,ARTICLEDESC ,ARTICLEAUTHOR,ARTICLEURL,ARTICLEURLTOIMAGE,PUBLISHEDAT,CONTENT,LIKES,SAVES,COMMENTS) VALUES('"+ARTICLEHEADER+"','"+ARTICLEDESC+"','"+ARTICLEAUTHOR+"','"+ARTICLEURL+"','"+ARTICLEURLTOIMAGE+"','"+PUBLISHEDAT+"','"+CONTENT+"',"+key+")";
+                    connection.query(query1,(error,row,field)=>{
+                        if(error){
+                            reject(error.message)
+                        }
+                        else{
+                            query2="insert into ARTICLECOMMENTS(COMMENTS ,USERNAME,DATEANDTIME,ARTICLEHEADER) VALUES('"+COMMENTS+"','"+username+"','"+Datetime+"','"+ARTICLEHEADER+"');";
+                            connection.query(query2,(errors,roww,feildds)=>{
+                                if(errors){
+                                    reject(errors.message)
+                                }
+                                else{
+                                    resolve(rows[0])
+                                }
+                            })
+                        }            
+                    })
+                 }
+                
+                 else{
+                    if(COMMENTS=='like'){
+                        query= "select LIKES from articledetails where ARTICLEHEADER='"+ARTICLEHEADER+"';"; 
+                   }
+                    else if(COMMENTS=='saved'){
+                        query= "select SAVES from articledetails where ARTICLEHEADER='"+ARTICLEHEADER+"';"; 
+                    }
+                    else{
+                        query= "select COMMENTS from articledetails where ARTICLEHEADER='"+ARTICLEHEADER+"';"; 
+                    }
+                    connection.query(query,(err,rows,fields)=>{
+                        if(err){
+                            reject(err)
+                        }
+                        else{
+                        if(COMMENTS=='like'){
+                            value=parseInt(rows[0].LIKES)+1
+                           query1="update articledetails set LIKES='"+value+"' where ARTICLEHEADER='"+ARTICLEHEADER+"'" ;
+                           console.log(query1);
+                        }
+                        else if(COMMENTS=='saved'){
+                            value=parseInt(rows[0].SAVES)+1;
+                            query1="update articledetails set SAVES='"+value+"' where ARTICLEHEADER='"+ARTICLEHEADER+"'" ;
+                            console.log(query1);
+
+                        }
+                        else{
+                            value=parseInt(rows[0].COMMENTS)+1;
+                            query1="update articledetails set COMMENTS='"+value+"' where ARTICLEHEADER='"+ARTICLEHEADER+"'" ;
+                            console.log(query1);
+
+                        }
+                        connection.query(query1,(error,row,field)=>{
+                            if(error){
+                                reject(error.message)
+                            }
+                            query2="insert into ARTICLECOMMENTS(COMMENTS ,USERNAME,DATEANDTIME,ARTICLEHEADER) VALUES('"+COMMENTS+"','"+username+"','"+Datetime+"','"+ARTICLEHEADER+"') "
+                            connection.query(query2,(err,rowws,fieldds)=>{
+                                if(err){
+                                    reject(err.message)
+                                }
+                                else{
+                                resolve(rowws[0]);
+                                }
+                            })
+                        })
+                    }
+                    })
+                 }
+                }
+             })
+            
+    })
+},
 };

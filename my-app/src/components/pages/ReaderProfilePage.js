@@ -29,7 +29,7 @@ export const ReaderProfilePage = () => {
 
   return (
     <div>
-      <h1>Welcome to your profile page</h1>
+      <h1>Welcome to your profile page!</h1>
       <ul>
         <li>Username: {localStorage.getItem("username")}</li>
         <li>User Type: {localStorage.getItem("usertype")}</li>

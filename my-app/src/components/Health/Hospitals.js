@@ -23,10 +23,7 @@ import DirectionsIcon from '@mui/icons-material/Directions';
 import CardMedia from '@mui/material/CardMedia';
 import Divider from '@mui/material/Divider';
 import InputBase from '@mui/material/InputBase';
-import Tab from '@material-ui/core/Tab';
-import TabContext from '@material-ui/lab/TabContext';
-import TabList from '@material-ui/lab/TabList';
-import TabPanel from '@material-ui/lab/TabPanel';
+
 
 const Hospitals = () => {
   const [articles, setArticles] = useState([]);
