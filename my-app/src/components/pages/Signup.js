@@ -70,7 +70,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import Axios from 'axios'
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -86,7 +88,7 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export const Signup = () => {
+export const Signup = (props) => {
     let navigate = useNavigate();
     const [value, setValue] = React.useState('female');
 
@@ -102,14 +104,36 @@ export const Signup = () => {
     // });
             Axios.post("/signin", {
             username: data.get('userName'),
-            password: data.get('passowrd'),
+            password: data.get('password'),
             emailId: data.get('email'),
             contactNo: data.get('contactNo'),
             usertype:  value
 
         }).then((response)=>{
-            navigate("/home")
-            
+            console.log('response from sign upppppp');
+            console.log(response.config.data["usertype"])
+           // navigate("/home")
+           if(response.data.token!=='USEREXISTS'){
+           toast('You have Sign up successfully', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+        }else if(response.data.token==='USEREXISTS'){
+            toast('User already exists', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+        }
         })
   };
 
@@ -195,6 +219,7 @@ export const Signup = () => {
       </Grid>
               
             </Grid>
+            <div> 
             <Button
               type="submit"
               fullWidth
@@ -203,6 +228,8 @@ export const Signup = () => {
             >
               Sign Up
             </Button>
+              
+               </div>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/login" variant="body2">
@@ -211,8 +238,9 @@ export const Signup = () => {
               </Grid>
             </Grid>
           </Box>
+     
         </Box>
-       
+     
         {/* <Copyright sx={{ mt: 5 }} /> */}
       </Container>
     </ThemeProvider>

@@ -31,11 +31,15 @@ import Hospitals from "./components/Health/Hospitals";
 import { ReaderProfilePage } from "./components/pages/ReaderProfilePage";
 import { JournalistProfilePage } from "./components/pages/JournalistProfilePage";
 
-
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  toast.configure()
+
   return (
     <div className="App">
+      
       <BrowserRouter>
      
         <NavBar />

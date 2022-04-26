@@ -107,9 +107,10 @@ export const Login = () => {
                 localStorage.setItem("saved", response.data[0].saved)
                 localStorage.setItem("usertype", response.data[0].usertype)
                 setLoginStatus(true);
-                if( localStorage.getItem("usertype") === "reader" ){
+                if( response.data[0].usertype === "Reader" ){
+                  console.log('in if of reader')
                     navigate("/readerprofile")
-                } else if( localStorage.getItem("usertype") === "journalist" ) {
+                } else if( response.data[0].usertype === "Journalist" ) {
                     navigate("/journalistprofile")
                 }
                 
