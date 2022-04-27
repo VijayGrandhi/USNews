@@ -12,8 +12,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import FaceIcon from '@mui/icons-material/Face';
 import DensityMediumIcon from '@mui/icons-material/DensityMedium';
 import { useNavigate } from 'react-router-dom';
-
-const NavBar = () => {
+import LogoutIcon from '@mui/icons-material/Logout';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';const NavBar = () => {
   const navigate = useNavigate();
 
   const handleClickOfNews= e => {
@@ -34,6 +34,13 @@ const NavBar = () => {
       navigate('/login');
 
     }
+    const onChangeLogout = e =>{
+      console.log('in logout function+++++++++++++++')
+      localStorage.clear();
+     
+      navigate('/home')
+    }
+ 
   return (
     <div>
    
@@ -58,8 +65,11 @@ const NavBar = () => {
           className="me-2"
           aria-label="Search"
         />
-        <Button onClick= {handleButtonChange}style={{backgroundColor:"white",color:'black'}}>Login</Button>
-        {/* <Button onClick= {handleButtonChange}style={{backgroundColor:"white",color:'black'}}>Sign up</Button> */}
+   {localStorage.getItem("token")!==null  ?
+       <div style={{color:'white',marginTop:'2%'}}>{localStorage.getItem("username")}</div>:
+       <Button onClick= {handleButtonChange}style={{backgroundColor:"white",color:'black'}}>Login</Button>} 
+        {/* <Button onClick= {handleButtonChange}style={{backgroundColor:"white",color:'black'}}>Sign up</Button>
+        {/* <Button onClick= {handleButtonChange}style={{backgroundColor:"white",color:'black'}}>Login</Button> */}
       </Form>
     
     <Navbar.Toggle style={{color:'white'}}aria-controls="offcanvasNavbar" >  <DensityMediumIcon /></Navbar.Toggle>
@@ -75,7 +85,19 @@ const NavBar = () => {
       </Offcanvas.Header>
       <Offcanvas.Body>
         <Nav className="justify-content-end flex-grow-1 pe-3">
-          <Button variant="text" style={{backgroundColor:'black',color:'white',textAlign:'left'}}><FaceIcon/> Sign In </Button>
+          
+        {localStorage.getItem("token")!==null  ?
+       <div style={{backgroundColor:'black',color:'white',textAlign:'left',marginLeft:'2%'}}><AccountCircleIcon/>{localStorage.getItem("username")}</div>:
+       <Button variant="text" style={{backgroundColor:'black',color:'white',textAlign:'left'}}><FaceIcon/> Sign In </Button>
+      } 
+  <br></br>
+{localStorage.getItem("token")!==null  ?
+               <Button onClick={onChangeLogout} variant="text" style={{backgroundColor:'black',color:'white',textAlign:'left'}}><LogoutIcon/> Logout </Button>
+               :
+      ''
+      } 
+          
+        
           <br></br>
         <Typography><b style={{fontSize:'20px'}}>MORE FROM U.S. NEWS</b></Typography>
         <br></br>
@@ -109,7 +131,7 @@ const NavBar = () => {
     <Navbar bg="dark" variant="dark">
       <Container style={{ display: "flex",
   justifyContent: "spaceBetween",
-  width: "42%"}}>
+  width: "100%"}}>
         
         <Nav style={{marginLeft:'auto',marginRight:'auto'}}>
           <NavDropdown title={<b style={{color:'white'}}>News</b>} id="navbarScrollingDropdown">
@@ -137,23 +159,27 @@ const NavBar = () => {
             <NavDropdown.Item href="home">Home</NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title={<b style={{color:'white'}}>Travel</b>} id="navbarScrollingDropdown">
-            <NavDropdown.Item href="#togo">To Go</NavDropdown.Item>
+            <NavDropdown.Item href="travelMainPage">Main</NavDropdown.Item>
             <NavDropdown.Item href="#other">Other</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="home">Home</NavDropdown.Item>
           </NavDropdown>
-          <NavDropdown title="Forums" id="navbarScrollingDropdown">
+          <NavDropdown title={<b style={{color:'white'}}>Forums</b> }id="navbarScrollingDropdown">
           <NavDropdown.Item href="forumtiles">Forums</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="home">Home</NavDropdown.Item>
           </NavDropdown>
-          <NavDropdown title="Signup/Login" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="/signin">Sign Up!</NavDropdown.Item>
-            <NavDropdown.Divider />
-            {/* <NavDropdown.Item href="/login">Login</NavDropdown.Item> */}
-          </NavDropdown>
-          <Nav.Link href="/readerprofile">Reader Profile</Nav.Link>
-          <Nav.Link href="/journalistprofile">Journalist Profile</Nav.Link>
+          {localStorage.getItem("token")!==null &&  localStorage.getItem("usertype")==="Reader"?
+      <Nav.Link href="/readerprofile"><b style={{color:'white'}}>Reader Profile</b></Nav.Link>:
+      ''} 
+       {localStorage.getItem("token")!==null && localStorage.getItem("usertype")==="Journalist"  ?
+       <Nav.Link href="/journalistprofile"><b style={{color:'white'}}>Journalist Profile</b></Nav.Link>:
+      ''} 
+          
+         
+          {localStorage.getItem("token")!==null  ?
+       <span onClick={onChangeLogout}style={{marginLeft:'62%',color:'white',marginTop:'1%'}}>Logout</span>:
+      ''}   
 
         </Nav>
       </Container>

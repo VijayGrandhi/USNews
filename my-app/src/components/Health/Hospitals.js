@@ -295,7 +295,7 @@ width:"45px"}}/>
       }}
     >
       {/* Increase the priority of the hero background image */}
-      {<img style={{ display: 'none' }} src="https://www.usnews.com/static/img/best-colleges-badge.svg" alt="abcde"/>}
+      {/* {<img style={{ display: 'none' }} src="https://www.usnews.com/static/img/best-colleges-badge.svg" alt="abcde"/>} */}
       <Box
         sx={{
           position: 'absolute',
@@ -316,7 +316,7 @@ width:"45px"}}/>
             }}
           >
             <Typography component="h1" variant="h3" color="inherit" style={{fontWeight:'900'}}gutterBottom>
-           2022 Best College Ranking
+           2022 Hospital Rankings
             </Typography>
             <br></br>
            

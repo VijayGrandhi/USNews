@@ -31,11 +31,15 @@ import Hospitals from "./components/Health/Hospitals";
 import { ReaderProfilePage } from "./components/pages/ReaderProfilePage";
 import { JournalistProfilePage } from "./components/pages/JournalistProfilePage";
 
-
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  toast.configure()
+
   return (
     <div className="App">
+      
       <BrowserRouter>
      
         <NavBar />
@@ -46,7 +50,7 @@ function App() {
           <Route path='' element = {<Home />} />
           <Route path="trending" element = {<Trending />} />
           <Route path="articlebody" element = {<ArticleBody />} />
-          <Route path="/signin" element = {<Signup />} />
+          <Route path="/signup" element = {<Signup />} />
           <Route path="/login" element = {<Login />} />
           <Route path="forums" element = {<Forums/>} />
           <Route path="forumtiles" element = {<ForumTile/>} />
@@ -69,6 +73,7 @@ function App() {
           <Route path="election" element = {<ElectionPage />} />
           <Route path="electionDetailed" element = {<ElectionDetailed />} />
           <Route path="event" element = {<EventMainPage />} />
+        
           <Route path="health" element = {<HealthMainPage />} />
           <Route path="hospitals" element = {<Hospitals />} />
           <Route path="/readerprofile" element = {<ReaderProfilePage />} />

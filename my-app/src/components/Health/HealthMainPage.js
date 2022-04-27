@@ -430,7 +430,7 @@ width:"45px"}}/>
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        backgroundImage: `url("https://www.princeton.edu/sites/default/files/styles/half_2x/public/images/2021/08/20210825_GS_Orientation_DJA_035_3000x1945.jpg?itok=CVTKT8gj")`,
+        backgroundImage: `url("https://www.usnews.com/dims4/USNEWS/d660560/2147483647/thumbnail/303x202/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2Fff%2F83%2F5e5fbd8a46f7b2ac775c23343810%2Fgettyimages-1126401283.jpg")`,
       }}
     >
       {/* Increase the priority of the hero background image */}
@@ -455,7 +455,7 @@ width:"45px"}}/>
             }}
           >
             <Typography component="h1" variant="h3" color="inherit" style={{fontWeight:'900'}}gutterBottom>
-           2022 Best College Ranking
+           2022 Hospital Rankings
             </Typography>
             <br></br>
            
@@ -483,7 +483,7 @@ width:"45px"}}/>
         />
       
         <Typography style={{textAlign:'center'}}sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>
-       <b>College Rankings</b>
+       <b>Children’s Specialty</b>
         </Typography>
         <Typography style={{textAlign:'center'}}sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>Life's Decisions Made Here</Typography>
         <Divider />
@@ -493,23 +493,23 @@ width:"45px"}}/>
      
 
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-           National Universities
+        Pediatric Cancer
         </Typography>
         {/* <br /> */}
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-           Liberal Art Collage
+        Pediatric Cardiology & Heart Surgery
         </Typography>
 
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-       Regional Universities
+        Pediatric Diabetes & Endocrinology
         </Typography>
 
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-       Regional Collages
+        Neonatology
         </Typography>
 
        
-        <Button variant="contained">See all College Ranking</Button>
+        <Button variant="contained">See full speciality list</Button>
       </CardContent>
 
 
