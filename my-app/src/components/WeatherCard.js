@@ -12,23 +12,21 @@ const WeatherCard = ( {location,temperature,feelsLike,humidity,condition,wind_mp
     <Container>
       <Row>
         <Col style={{ padding:5 }}>
-          <Card style={{ width: "auto", height: "20rem", backgroundImage: `url("https://iea.imgix.net/817ded0e-7bb6-4b79-b425-65e6f7b705f1/shutterstock_1484419673.jpg?auto=compress%2Cformat&fit=min&q=80&rect=0%2C517%2C3840%2C1643")`, backgroundSize:"100rem", backgroundRepeat: "no-repeat"}}>
+          <Card style={{ width: "auto", height: "20rem", backgroundImage: `url("https://www.pngmagic.com/product_images/dark-color-gradient-background-vector-&-illustration.jpg")`, backgroundSize:"100rem", backgroundRepeat: "no-repeat"}}>
             <Card.Body>
-              <Card.Title style={{ color: "white" }}>{location}</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                {temperature}
-              </Card.Subtitle>
-              <Card.Subtitle className="mb-2 text-muted">
-                The current data is:
+              <Card.Title style={{ color: "white", fontSize: "4rem" }}>{location}</Card.Title>
+              <Card.Subtitle style={{ color: "white", fontSize: "2rem" }} className="mb-2">
+                {temperature} F
               </Card.Subtitle>
               <Card.Text style={{ color: "white" }}>
-              It feels like {feelsLike}.
-              The humidity is {humidity}.
-              The condition is {condition}.
-              The wind is {wind_mph} miles per hour.
-              The coordinates is latitude: {lat} longitude: {lon} and the local time is {local_time}.
+              It feels like {feelsLike} <br/>
+              The humidity is {humidity} <br/>
+              The condition is {condition} <br/>
+              The wind is {wind_mph} miles per hour <br/>
+              The coordinates is latitude: {lat} longitude: {lon} <br/>Local time is: {local_time}
               </Card.Text>
             </Card.Body>
+            
           </Card>
         </Col>
       </Row>

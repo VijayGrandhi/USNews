@@ -28,7 +28,7 @@ const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'password',
-    database: 'USNEWS'
+    database: 'usersdb'
 })
 
 app.use(bodyParser.urlencoded({extended: false}));

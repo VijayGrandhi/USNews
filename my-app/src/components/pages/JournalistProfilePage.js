@@ -2,8 +2,8 @@ import Axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { Form, Card, CardGroup, Button } from "react-bootstrap";
-import { CardActionArea } from '@mui/material';
-import {Link} from "react-router-dom";
+import { CardActionArea } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export const JournalistProfilePage = () => {
   const token = localStorage.getItem("token");
@@ -30,7 +30,8 @@ export const JournalistProfilePage = () => {
         ARTICLEDESC: description,
         ARTICLEAUTHOR: inputauthor,
         ARTICLEURL: null,
-        ARTICLEURLTOIMAGE: null,
+        ARTICLEURLTOIMAGE:
+          "https://i0.wp.com/css-tricks.com/wp-content/uploads/2020/11/css-gradient.png?fit=1200%2C600&ssl=1",
         PUBLISHEDAT: null,
         CONTENT: content,
         Datetime: Date().toLocaleString(),
@@ -114,18 +115,28 @@ export const JournalistProfilePage = () => {
           <div>
             <br />
             <Card style={{ width: "25rem", height: "28rem", padding: "10px" }}>
-            <CardActionArea> 
-              <Card.Img variant="top" src={article.ARTICLEURLTOIMAGE!==undefined ?article.ARTICLEURLTOIMAGE : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb5q6gS7QEtuygd3qTwpE3DVjpTrkraqtHEZTdgGmscTNxZVWK3td6ALoU2OMjPjs_-A4&usqp=CAU"} />
-              <Card.Body>
-                <Card.Title>{article.ARTICLEHEADER}</Card.Title>
-                <Card.Text>  
-                  {article.ARTICLEDESC}
-                  <br/>
-                  Likes: {article.LIKES} &nbsp;
-                  Comments: {article.COMMENTS} &nbsp;
-                  Saved: {article.SAVES}</Card.Text>
-              </Card.Body>
-              <Link to="/profilearticlebody" state={article}>Read Article</Link>
+              <CardActionArea>
+                <Card.Img
+                  variant="top"
+                  src={
+                    article.ARTICLEURLTOIMAGE !== ""
+                      ? article.ARTICLEURLTOIMAGE
+                      : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb5q6gS7QEtuygd3qTwpE3DVjpTrkraqtHEZTdgGmscTNxZVWK3td6ALoU2OMjPjs_-A4&usqp=CAU"
+                  }
+                  style={{ maxWidth: "15rem", maxHeight: "20rem" }}
+                />
+                <Card.Body>
+                  <Card.Title>{article.ARTICLEHEADER}</Card.Title>
+                  <Card.Text>
+                    {article.ARTICLEDESC}
+                    <br />
+                    Likes: {article.LIKES} &nbsp; Comments: {article.COMMENTS}{" "}
+                    &nbsp; Saved: {article.SAVES}
+                  </Card.Text>
+                </Card.Body>
+                <Link to="/profilearticlebody" state={article}>
+                  Read Article
+                </Link>
               </CardActionArea>
             </Card>
           </div>

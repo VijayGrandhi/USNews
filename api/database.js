@@ -42,7 +42,7 @@ module.exports = {
           } else {
             if (rows.length == "0") {
               query1 =
-                "insert into USERDETAILS(USERNAME,usertype,PASS_WORD,EMAILID,CONTACT_NO,likes,saved,COMMENTS) values('" +
+                "insert into USERDETAILS(USERNAME,usertype,PASS_WORD,EMAILID,CONTACT_NO,likes,saved,comments) values('" +
                 username +
                 "','" +
                 usertype +
