@@ -159,8 +159,10 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';const NavBar =
             <NavDropdown.Item href="home">Home</NavDropdown.Item>
           </NavDropdown>
           <NavDropdown title={<b style={{color:'white'}}>Travel</b>} id="navbarScrollingDropdown">
-            <NavDropdown.Item href="travelMainPage">Main</NavDropdown.Item>
-            <NavDropdown.Item href="#other">Other</NavDropdown.Item>
+            <NavDropdown.Item href="travel">Main</NavDropdown.Item>
+            <NavDropdown.Item href="travelGuide">Travel Guide</NavDropdown.Item>
+            <NavDropdown.Item href="toursAttraction">Tours and Attraction</NavDropdown.Item>
+            
             <NavDropdown.Divider />
             <NavDropdown.Item href="home">Home</NavDropdown.Item>
           </NavDropdown>

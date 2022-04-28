@@ -130,32 +130,7 @@ width:"150px"}}/>
             <br></br>
             <br></br>
             <br></br>
-            {/* <Box sx={{ maxWidth: { xs: 220, sm: 380 }, bgcolor: 'background.paper' }}> */}
-      {/* <Tabs
-        value={value}
-        onChange={handleChange}
-        variant="scrollable"
-        scrollButtons="auto"
-        aria-label="scrollable auto tabs example"
-      >
-        <Tab label="All Hospitals" />
-        <Tab label="Children's Hospitals" />
        
-      </Tabs> */}
-       {/* <TabContext value="1">
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <TabList  aria-label="lab API tabs example">
-            <Tab label="Item One" value="1" />
-            <Tab label="Item Two" value="2" />
-            <Tab label="Item Three" value="3" />
-          </TabList>
-        </Box>
-        <TabPanel value="1">Item One</TabPanel>
-        <TabPanel value="2">Item Two</TabPanel>
-        <TabPanel value="3">Item Three</TabPanel>
-      </TabContext> */}
-        
-    {/* </Box> */}
           </Box>
         </Grid>
       </Grid>
@@ -165,21 +140,11 @@ width:"150px"}}/>
         <Card sx={{ display: 'flex' }}>
           <CardContent sx={{ flex: 1 }}>
             <Typography component="h2" variant="h5">
-            U.S. News College Compass
+            Best Hospitals for Adults 2021-22
             </Typography>
-            <br></br>
-            <Typography variant="subtitle1" color="text.secondary">
-            Unlock our comprehensive data, rankings and interactive tools to help you and your child choose the right college.           </Typography>
-           <br></br>
-            <Button style={{backgroundColor:'#CE2927'}}variant="contained">Unlock with College Compass</Button>
-
+           
           </CardContent>
-          <CardMedia
-            component="img"
-            sx={{ width: 220, display: { xs: 'none', sm: 'block' } }}
-            image="https://www.usnews.com/static-atlas/assets/img/news/best-countries/logos/best-countries.svg"
-            alt=""
-          />
+    
         </Card>
       </CardActionArea>
     </Grid>
@@ -209,7 +174,7 @@ height:"45px",
 width:"45px"}}/>
 		</div>	
 	<div style={{marginLeft:"60px"}}>
-	<h8>Finding the Right School
+	<h8> Cancer
 </h8>
 	
 	</div>
@@ -224,7 +189,7 @@ height:"45px",
 width:"45px"}}/>
 		</div>	
 	<div style={{marginLeft:"60px"}}>
-	<h8>Apply to College
+	<h8>Cardiology & Heart Surgery
 </h8>
 	
 	</div>
@@ -239,7 +204,7 @@ height:"45px",
 width:"45px"}}/>
 		</div>	
 	<div style={{marginLeft:"60px"}}>
-	<h8>Paying for College</h8>
+	<h8>Diabetes & Endocrinology</h8>
 	
 	</div>
   <br></br>
@@ -253,7 +218,7 @@ height:"45px",
 width:"45px"}}/>
 		</div>	
 	<div style={{marginLeft:"60px"}}>
-	<h7>College Test Prep</h7>
+	<h7>Ear, Nose & Throat</h7>
 	
 	</div>
   <br></br>
@@ -267,7 +232,7 @@ height:"45px",
 width:"45px"}}/>
 		</div>	
 	<div style={{marginLeft:"60px"}}>
-	<h7>Studying in the United States
+	<h7>Pulmonology & Lung Surgery
 </h7>
 	
 	</div>
@@ -291,7 +256,7 @@ width:"45px"}}/>
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        backgroundImage: `url("https://www.princeton.edu/sites/default/files/styles/half_2x/public/images/2021/08/20210825_GS_Orientation_DJA_035_3000x1945.jpg?itok=CVTKT8gj")`,
+        backgroundImage: `url("https://www.usnews.com/object/image/0000017a-bfec-d8ec-af7a-ffef5dfb0000/210719_BestHospitalsHonorRollBagde?size=responsiveFlow300&update-time=1626717634715")`,
       }}
     >
       {/* Increase the priority of the hero background image */}
@@ -344,7 +309,7 @@ width:"45px"}}/>
         />
       
         <Typography style={{textAlign:'center'}}sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>
-       <b>College Rankings</b>
+       <b>Hospital Rankings</b>
         </Typography>
         <Typography style={{textAlign:'center'}}sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>Life's Decisions Made Here</Typography>
         <Divider />
@@ -354,23 +319,22 @@ width:"45px"}}/>
      
 
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-           National Universities
+        Mayo Clinic
         </Typography>
         {/* <br /> */}
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-           Liberal Art Collage
+        Cleveland Clinic
         </Typography>
 
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-       Regional Universities
+        UCLA Medical Center
         </Typography>
 
         <Typography style={{lineHeight:'35px'}}variant="h10" component="div">
-       Regional Collages
+        Johns Hopkins Hospital
         </Typography>
-
        
-        <Button variant="contained">See all College Ranking</Button>
+        <Button variant="contained">See all Hospital Ranking</Button>
       </CardContent>
 
 

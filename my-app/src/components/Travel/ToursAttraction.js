@@ -24,7 +24,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import DirectionsIcon from '@mui/icons-material/Directions';
-const Travel = () => {
+const ToursAttraction = () => {
   const [articles, setArticles] = useState([]);
   const navigate = useNavigate();
 
@@ -59,32 +59,13 @@ const Travel = () => {
           Home
         </Link>
        
-        <Typography color="text.primary">Travel</Typography>
+        <Typography color="text.primary">Tours And Attraction</Typography>
       </Breadcrumbs>
       <br />
     
       <Grid container spacing={3}>
   <Grid item xs={12} md={12}>
-    {/* <Card onClick={handleClickOfNews}>
-       <CardActionArea>
-         <CardMedia
-          component="img"
-          height="500"
-          image="https://travel.usnews.com/static-atlas/assets/img/travel/HomepageFeatured_21001174_Q4_NYC_Philly_2021_Digital_Campaign_US_News_Header_1280x480_REVISED_2.jpg"
-          alt="green iguana"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            BEST COUNTRIES
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-           
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card> */}
+ 
        <Paper
    
    sx={{
@@ -96,7 +77,7 @@ const Travel = () => {
      backgroundSize: 'cover',
      backgroundRepeat: 'no-repeat',
      backgroundPosition: 'center',
-     backgroundImage: `url("https://travel.usnews.com/static-atlas/assets/img/travel/HomepageFeatured_21001174_Q4_NYC_Philly_2021_Digital_Campaign_US_News_Header_1280x480_REVISED_2.jpg")`,
+     backgroundImage: `url("https://www.planetware.com/wpimages/2020/08/top-attractions-in-the-world-italy-rome-colosseum.jpg")`,
    }}
  >
    {/* Increase the priority of the hero background image */}
@@ -121,78 +102,47 @@ const Travel = () => {
          }}
        >
          
-           <img src='https://health.usnews.com/static-atlas/assets/img/health/adult-hospitals.png' style={{
-display:'block',marginLeft:'auto',
-height:"150px",
-width:"150px",marginLeft:'89%'}}/>
-<br></br>
-<br></br>
+
 
 
          <Typography component="h1" variant="h3" color="inherit" style={{fontWeight:'700',textAlign:'center'}}gutterBottom>
-         Find Your Next Vacation
+         Tours and Attractions
          </Typography>
          <br></br>
-         <Typography style={{fontWeight:'600',textAlign:'center'}}variant="h9" color="inherit" style={{textAlign:'center'}}gutterBottom>
-         Design your perfect vacation by choosing from the best ranked hotels, cruises and destinations.
-         </Typography>
-         {/* <Link style={{color:'white'}}variant="subtitle1" href="#">
-         Schools and parents can work together to help kids recover from COVID-related instructional loss.
-
-         </Link> */}
+  
+        
          <br></br>
 <br></br>
-          <Paper
-      component="form"
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
-    >
-     
-      <InputBase
-        sx={{ ml: 1, flex: 1 }}
-        placeholder="Pick a destination"
-        inputProps={{ 'aria-label': 'search google maps' }}
-      />
-      <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
-        <SearchIcon />
-      </IconButton>
-    
-      <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-      
-    </Paper>
-         <br></br>
-         <br></br>
-         <br></br>
-         <br></br>
-         <br></br>
-    
+         
        </Box>
      </Grid>
+ 
    </Grid>
  </Paper>
     </Grid>
     
     
-   
-    
-   
-    
-  
+    <Grid item  sm={12} md={12}>
+   <Typography component="h1" variant="h5" color="inherit" style={{fontWeight:'700'}}gutterBottom>
+   FEATURED BEST THINGS TO DO
+
+         </Typography>
+
+   </Grid>
 
     <Grid item  sm={6} md={3}>
     <Card >
       <CardMedia
         component="img"
         height="140"
-        image="https://www.usnews.com/dims4/USNEWS/013f768/2147483647/resize/300x%3E/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F57%2Fc3%2Fb670650d49fa8bba58fd38370768%2F180703travelhomepagevacations-stock.jpg"
+        image="https://travel.usnews.com/dims4/USNEWS/f5b1f49/2147483647/resize/600x400%3E!/quality/85/?url=https://travel.usnews.com/static-travel/images/destinations/289/borabora_445x280.jpg"
         alt="green iguana"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-       Best Vacations
+        <Typography gutterBottom variant="h5" style={{textAlign:'center'}}component="div">
+      Bora Bora
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-        Find the prefect vacation based on region and type
-        </Typography>
+      
       </CardContent>
       <CardActions>
        
@@ -204,16 +154,14 @@ width:"150px",marginLeft:'89%'}}/>
       <CardMedia
         component="img"
         height="140"
-        image="https://www.usnews.com/dims4/USNEWS/cd569ab/2147483647/thumbnail/303x202/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2Fc0%2Fbf%2F7a1a6db4481f9bbafb08b8bad61b%2F180629-cruiseship-stock.jpg"
+        image="https://travel.usnews.com/dims4/USNEWS/3478e62/2147483647/resize/600x400%3E!/quality/85/?url=https://travel.usnews.com/static-travel/images/destinations/44/main_image_september_2013_cropped_445x280.jpg"
         alt="green iguana"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-       Best Cruises
+        <Typography gutterBottom variant="h5" style={{textAlign:'center'}}component="div">
+       New York
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-        Explore Cruises and find the one that's right for you
-        </Typography>
+    
       </CardContent>
       <CardActions>
        
@@ -225,16 +173,14 @@ width:"150px",marginLeft:'89%'}}/>
       <CardMedia
         component="img"
         height="140"
-        image="https://www.usnews.com/dims4/USNEWS/673f1aa/2147483647/thumbnail/303x202/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F6a%2F83%2Fa5e93edc4be38e97053f36076af1%2Fresizes%2F500%2F180629-hotelthecarlyle-submitted.jpg"
+        image="https://travel.usnews.com/dims4/USNEWS/d6c1a17/2147483647/resize/600x400%3E!/quality/85/?url=https://travel.usnews.com/static-travel/images/destinations/82/482151882_445x280.jpg"
         alt="green iguana"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-       Best Hotels
+        <Typography gutterBottom variant="h5" style={{textAlign:'center'}}component="div">
+       London
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-        Browse more that 35,000 hotels across the world 
-        </Typography>
+      
       </CardContent>
       <CardActions>
        
@@ -246,16 +192,100 @@ width:"150px",marginLeft:'89%'}}/>
       <CardMedia
         component="img"
         height="140"
-        image="https://www.usnews.com/dims4/USNEWS/054f617/2147483647/resize/300x%3E/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2Ff4%2F54%2Fe8123d7f414cadfe708146c995bc%2F180703travelhomepagerewards-stock.jpg"
+        image="https://travel.usnews.com/dims4/USNEWS/a9fd306/2147483647/resize/600x400%3E!/quality/85/?url=https://travel.usnews.com/static-travel/images/destinations/86/gettyimages-532590277_445x280.jpg"
         alt="green iguana"
       />
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-       Best Rewards
+        <Typography gutterBottom variant="h5" style={{textAlign:'center'}}component="div">
+       London
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-        Research the best hotel and online rewards programs
+      
+      </CardContent>
+      <CardActions>
+       
+      </CardActions>
+    </Card>
+    </Grid>
+
+
+    <Grid item  sm={12} md={12}>
+   <Typography component="h1" variant="h5" color="inherit" style={{fontWeight:'700'}}gutterBottom>
+   FEATURED TOURS
+
+         </Typography>
+
+   </Grid>
+
+    <Grid item  sm={6} md={3}>
+    <Card >
+      <CardMedia
+        component="img"
+        height="140"
+        image="https://travel.usnews.com/dims4/USNEWS/8823e86/2147483647/resize/600x400%3E!/quality/85/?url=https://media.beam.usnews.com/db/2d/6cd21c774c01b7264ab4e4108f96/200224-chicago-stock.jpg"
+        alt="green iguana"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" style={{textAlign:'center'}}component="div">
+      The 14 best Chicago Tours
         </Typography>
+      
+      </CardContent>
+      <CardActions>
+       
+      </CardActions>
+    </Card>
+    </Grid>
+    <Grid item  sm={6} md={3}>
+    <Card >
+      <CardMedia
+        component="img"
+        height="140"
+        image="https://travel.usnews.com/dims4/USNEWS/ad3cade/2147483647/resize/600x400%3E!/quality/85/?url=https://media.beam.usnews.com/63/c0/ecc91bf24105b779d1d20b8b2e92/565-central-park-sheep-meadow-courtesy-of-the-central-park-conservancy.jpg"
+        alt="green iguana"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" style={{textAlign:'center'}}component="div">
+     The 17 Best New York City Tours
+        </Typography>
+    
+      </CardContent>
+      <CardActions>
+       
+      </CardActions>
+    </Card>
+    </Grid>
+    <Grid item  sm={6} md={3}>
+    <Card >
+      <CardMedia
+        component="img"
+        height="140"
+        image="https://travel.usnews.com/dims4/USNEWS/68c9157/2147483647/resize/600x400%3E!/quality/85/?url=https://media.beam.usnews.com/76/5d/84e4e40449179bb56f323176de73/5.jpg"
+        alt="green iguana"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" style={{textAlign:'center'}}component="div">
+       The 21 best Paris Tours
+        </Typography>
+      
+      </CardContent>
+      <CardActions>
+       
+      </CardActions>
+    </Card>
+    </Grid>
+    <Grid item  sm={6} md={3}>
+    <Card >
+      <CardMedia
+        component="img"
+        height="140"
+        image="https://travel.usnews.com/dims4/USNEWS/5b3a6b9/2147483647/resize/600x400%3E!/quality/85/?url=https://media.beam.usnews.com/bb/c8/59c40cdd4cacbc74086e09589bff/1064-the-bay-lights-3-james-ewing.jpg"
+        alt="green iguana"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" style={{textAlign:'center'}}component="div">
+       The 19 best San Fransisco Tours
+        </Typography>
+      
       </CardContent>
       <CardActions>
        
@@ -268,4 +298,4 @@ width:"150px",marginLeft:'89%'}}/>
   );
 };
 
-export default Travel;
+export default ToursAttraction;

@@ -13,7 +13,7 @@ import CountryMainPage from "./components/Countries/CountryMainPage";
 import DetailedNews from "./components/Countries/DetailedNews";
 import RankingList from "./components/Countries/RankingList";
 import EducationMainPage from "./components/Education/EducationMainPage";
-
+import ToursAttraction from './components/Travel/ToursAttraction';
 import Footer from "./components/Footer";
 import { Sample } from "./components/pages/Sample";
 import { Signup } from "./components/pages/Signup";
@@ -33,6 +33,9 @@ import { JournalistProfilePage } from "./components/pages/JournalistProfilePage"
 
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Doctors from "./components/Health/Doctors";
+import Travel from "./components/Travel/Travel";
+import TravelGuides from "./components/Travel/TravelGuides";
 
 function App() {
   toast.configure()
@@ -72,9 +75,12 @@ function App() {
           <Route path="universityRanking" element = {<UniversityRanking />} />
           <Route path="election" element = {<ElectionPage />} />
           <Route path="electionDetailed" element = {<ElectionDetailed />} />
+          <Route path="travelGuide" element = {<TravelGuides />} />
+          <Route path="toursAttraction" element = {<ToursAttraction />} />
           <Route path="event" element = {<EventMainPage />} />
-        
+          <Route path="travel" element = {<Travel />} />
           <Route path="health" element = {<HealthMainPage />} />
+          <Route path="doctors" element = {<Doctors />} />
           <Route path="hospitals" element = {<Hospitals />} />
           <Route path="/readerprofile" element = {<ReaderProfilePage />} />
           <Route path="/journalistprofile" element = {<JournalistProfilePage />} />
